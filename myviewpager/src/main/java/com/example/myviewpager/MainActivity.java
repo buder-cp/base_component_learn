@@ -107,6 +107,39 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                if (state == ViewPager.SCROLL_STATE_DRAGGING) {
+                    cancelAutoScroll();
+                } else if (state == ViewPager.SCROLL_STATE_SETTLING) {
+                    cancelAutoScroll();
+                } else if (state == ViewPager.SCROLL_STATE_IDLE) {
+                    startAutoScroll();
+                }
+            }
+        });
+
+    }
+
+    private void startAutoScroll() {
+        cancelAutoScroll();
+        mHandler.postDelayed(mRunnable, 1000 * 3);
+    }
+
+    public void cancelAutoScroll() {
+        mHandler.removeCallbacksAndMessages(null);
     }
 
     //开启ViewPager的自动轮播
