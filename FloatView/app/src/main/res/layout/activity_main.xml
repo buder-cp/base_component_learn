@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    
+    <Button
+        android:layout_margin="10dp"
+        android:id="@+id/button_show"
+        android:text="show anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_margin="10dp"
+        android:id="@+id/button_hide"
+        android:text="hide anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="   adjadks
+askjdkasdkasjdklas"/>
+
+</LinearLayout>

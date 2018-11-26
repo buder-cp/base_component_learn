@@ -1,0 +1,39 @@
+<manifest package="com.zero.floatview"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        
+        <activity android:name=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN">
+                </action>
+                <category android:name="android.intent.category.LAUNCHER">
+                </category>
+            </intent-filter>
+
+            <intent-filter>
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:mimeType="*/*"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="text/plain" />
+
+                <data android:host="*" />
+                <data android:pathPattern=".*" />
+                <action android:name="android.intent.action.VIEW" />
+
+            </intent-filter>
+
+        </activity>
+        
+    </application>
+
+</manifest>
