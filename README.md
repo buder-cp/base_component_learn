@@ -27,3 +27,6 @@ get_excel_values	获取Excel表格中指定行列值
 progressbar	自定义圆形progressBar
 
 smart_learn_refresh_self_define	smartRefreshLayout 自定义学习
+
+myviewpager 无限轮播的viewpager
+
