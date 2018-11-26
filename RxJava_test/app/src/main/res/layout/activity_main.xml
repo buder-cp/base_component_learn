@@ -8,7 +8,7 @@
     <RelativeLayout
         android:id="@+id/create"
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="60dp">
 
         <TextView
             android:id="@+id/create_txt"
@@ -32,7 +32,7 @@
         android:id="@+id/map"
         android:layout_below="@+id/create"
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="60dp">
 
         <TextView
             android:id="@+id/map_txt"
@@ -48,6 +48,156 @@
             android:layout_marginBottom="10dp"
             android:layout_marginRight="20dp"
             android:text="map"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/intervalRange"
+        android:layout_below="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/intervalRange_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="intervalRange_btn"/>
+
+        <Button
+            android:id="@+id/intervalRange_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:text="intervalRange_btn"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/faltMap"
+        android:layout_below="@+id/intervalRange"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/faltMap_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="faltMap"/>
+
+        <Button
+            android:id="@+id/faltMap_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:text="faltMap_btn"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Interval"
+        android:layout_below="@+id/faltMap"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/Interval_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Interval"/>
+
+        <Button
+            android:id="@+id/Interval_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:text="Interval_btn"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Just"
+        android:layout_below="@+id/Interval"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/Just_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Just"/>
+
+        <Button
+            android:id="@+id/Just_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:text="Just_btn"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Single"
+        android:layout_below="@+id/Just"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/Single_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Single"/>
+
+        <Button
+            android:id="@+id/Single_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:text="Single_btn"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/throttle"
+        android:layout_below="@+id/Single"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/throttle_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="throttle"/>
+
+        <Button
+            android:id="@+id/throttle_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:text="throttle_btn"
             />
 
     </RelativeLayout>
