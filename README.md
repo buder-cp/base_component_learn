@@ -30,3 +30,8 @@ smart_learn_refresh_self_define	smartRefreshLayout 自定义学习
 
 myviewpager 无限轮播的viewpager
 
+FloatView	全屏笑脸、点赞动画
+
+RxJava_test	Rx操作符学习
+
+
