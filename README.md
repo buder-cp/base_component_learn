@@ -34,4 +34,6 @@ FloatView	全屏笑脸、点赞动画
 
 RxJava_test	Rx操作符学习
 
+gsontest	Gson解析学习示例
+
 
