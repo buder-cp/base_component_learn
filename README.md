@@ -36,4 +36,7 @@ RxJava_test	Rx操作符学习
 
 gsontest	Gson解析学习示例
 
+observermodel	观察者模式实例
+
+
 
