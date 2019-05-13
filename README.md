@@ -41,3 +41,7 @@ observermodel	观察者模式实例
 buildermodel	一眼就会的建造者模式
 
 DiffUtil_Learn	DiffUtil—_learn2再次学习
+
+Android横竖屏的写法、及savedInstanceState的使用
+
+
