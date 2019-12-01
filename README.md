@@ -46,6 +46,6 @@ Android横竖屏的写法、及savedInstanceState的使用
 
 Android service启动方式学习
 
-
+从底部弹出的dialog
 
 
