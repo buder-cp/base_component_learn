@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.lib_multi_ly" >
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name">
+        <activity
+            android:name="com.example.lib_multi_ly.MultiLayoutActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+    </application>
+
+
+</manifest>

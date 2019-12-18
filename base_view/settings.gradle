@@ -1,0 +1,2 @@
+include ':app', ':lib_easy_use', ':lib_multi_ly'
+rootProject.name='base_view'
