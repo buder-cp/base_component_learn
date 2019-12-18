@@ -48,4 +48,7 @@ Android service启动方式学习
 
 从底部弹出的dialog
 
+AIDL的服务端server和客户端client
+
+recyclerView多布局基础封装
 
