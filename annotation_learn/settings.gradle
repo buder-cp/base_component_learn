@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':module_annotation', ':module_processor', ':module_library'
 rootProject.name='Annotation learn'
