@@ -14,7 +14,7 @@ import com.example.module_annotation.BindView;
 import com.example.module_library.BindViewTools;
 
 //动态运行时注解
-//@BindId(R.layout.activity_main)
+@BindId(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
 
     /**
@@ -24,36 +24,36 @@ public class MainActivity extends AppCompatActivity {
     TextView mStaticTv;
 
     //动态运行时注解
-//    @BindId(R.id.dynamic_annotation_txt)
-//    private TextView mDynamicTv;
+    @BindId(R.id.dynamic_annotation_txt)
+    private TextView mDynamicTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //动态运行时主机注册
-//        BindIdApi.bindId(this);
+        BindIdApi.bindId(this);
 
         //静态编译时时注解注册
         BindViewTools.bind(this);
         mStaticTv.setText("静态编译时注解生效");
 
         //动态运行时注解，onClick 注解
-//        tv = findViewById(R.id.hello_txt);
-//        mDynamicTv.setText("通过注解ID，运行时注解查找");
+        mStaticTv = findViewById(R.id.dynamic_annotation_txt);
+        mDynamicTv.setText("通过注解ID，运行时注解查找");
 
-//        tv.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-//        BindOnClickApi.bindOnClick(this);
+        mStaticTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        BindOnClickApi.bindOnClick(this);
     }
 
     //动态运行时注解
-//    @BindOnClick(R.id.dynamic_annotation_txt)
-//    private void txtClick(View view) {
-//        Toast.makeText(MainActivity.this, "annotation", Toast.LENGTH_SHORT).show();
-//    }
+    @BindOnClick(R.id.dynamic_annotation_txt)
+    private void txtClick(View view) {
+        Toast.makeText(MainActivity.this, "annotation", Toast.LENGTH_SHORT).show();
+    }
 }
