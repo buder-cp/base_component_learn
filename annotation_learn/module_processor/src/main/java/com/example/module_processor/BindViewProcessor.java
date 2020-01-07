@@ -31,10 +31,10 @@ public class BindViewProcessor extends AbstractProcessor {
     private Map<String, ClassCreatorProxy> mProxyMap = new HashMap<>();
 
     @Override
-    public synchronized void init(ProcessingEnvironment processingEnvironment) {
-        super.init(processingEnvironment);
-        mMessager = processingEnvironment.getMessager();
-        mElementUtils = processingEnvironment.getElementUtils();
+    public synchronized void init(ProcessingEnvironment processingEnv) {
+        super.init(processingEnv);
+        mMessager = processingEnv.getMessager();
+        mElementUtils = processingEnv.getElementUtils();
     }
 
     @Override
@@ -46,7 +46,7 @@ public class BindViewProcessor extends AbstractProcessor {
 
     @Override
     public SourceVersion getSupportedSourceVersion() {
-        return super.getSupportedSourceVersion();
+        return SourceVersion.latestSupported();
     }
 
     @Override
@@ -98,4 +98,5 @@ public class BindViewProcessor extends AbstractProcessor {
         mMessager.printMessage(Diagnostic.Kind.NOTE, "process finish ...");
         return true;
     }
+
 }

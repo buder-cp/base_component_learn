@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.CLASS)
-@Target({ElementType.FIELD})
+@Target(ElementType.FIELD)
 public @interface BindView {
     int value();
 }

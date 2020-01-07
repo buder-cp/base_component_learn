@@ -6,20 +6,41 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-@BindId(R.layout.activity_main)
+import com.example.annotationlearn.dynamic_runtime_annotation.BindId;
+import com.example.annotationlearn.dynamic_runtime_annotation.BindIdApi;
+import com.example.annotationlearn.dynamic_runtime_annotation.BindOnClick;
+import com.example.annotationlearn.dynamic_runtime_annotation.BindOnClickApi;
+import com.example.module_annotation.BindView;
+import com.example.module_library.BindViewTools;
+
+//动态运行时注解
+//@BindId(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
 
-    @BindId(R.id.hello_txt)
-    private TextView tv;
+    /**
+     * 静态编译时时注解
+     */
+    @BindView(R.id.static_annotation_txt)
+    TextView mStaticTv;
+
+    //动态运行时注解
+//    @BindId(R.id.dynamic_annotation_txt)
+//    private TextView mDynamicTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        BindIdApi.bindId(this);
+        setContentView(R.layout.activity_main);
+        //动态运行时主机注册
+//        BindIdApi.bindId(this);
 
+        //静态编译时时注解注册
+        BindViewTools.bind(this);
+        mStaticTv.setText("静态编译时注解生效");
+
+        //动态运行时注解，onClick 注解
 //        tv = findViewById(R.id.hello_txt);
-        tv.setText("通过注解ID查找");
+//        mDynamicTv.setText("通过注解ID，运行时注解查找");
 
 //        tv.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -27,11 +48,12 @@ public class MainActivity extends AppCompatActivity {
 //
 //            }
 //        });
-        BindOnClickApi.bindOnClick(this);
+//        BindOnClickApi.bindOnClick(this);
     }
 
-    @BindOnClick(R.id.hello_txt)
-    private void txtClick(View view) {
-        Toast.makeText(MainActivity.this, "annotation", Toast.LENGTH_SHORT).show();
-    }
+    //动态运行时注解
+//    @BindOnClick(R.id.dynamic_annotation_txt)
+//    private void txtClick(View view) {
+//        Toast.makeText(MainActivity.this, "annotation", Toast.LENGTH_SHORT).show();
+//    }
 }
