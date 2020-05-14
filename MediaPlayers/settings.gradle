@@ -1,0 +1,3 @@
+rootProject.name='MediaPlayers'
+include ':app'
+include ':surfacetest1'
