@@ -1,2 +1,2 @@
-include ':app', ':buderdn07'
+include ':app', ':buderdn07', ':buderdn08'
 rootProject.name='performOpt'
