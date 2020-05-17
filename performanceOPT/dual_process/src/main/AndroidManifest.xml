@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.test.buderdn14">
-
+    package="com.test.dual_process">
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <application
         android:allowBackup="true"
@@ -17,8 +16,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.KeepActivity" />
-        <service android:name=".jobscheduler.MyJobService"
+        <service android:name=".service.LocalService"
+            android:exported="true"
+            android:process=":local"/>
+        <service android:name=".service.LocalService$InnnerService"
+            android:exported="true"
+            android:process=":local"/>
+        <service android:name=".service.RemoteService"
+            android:exported="true"
+            android:process=":remote"/>
+        <service android:name=".service.RemoteService$InnnerService"
+            android:exported="true"
+            android:process=":remote"/>
+        <service android:name=".service.MyJobService"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
     </application>
 
