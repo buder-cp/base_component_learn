@@ -11,10 +11,11 @@ import android.content.ServiceConnection;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
 
 import com.dn.deamon.IMyAidlInterface;
+
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 
 public class RemoteService extends Service {
     private MyBinder myBinder;
