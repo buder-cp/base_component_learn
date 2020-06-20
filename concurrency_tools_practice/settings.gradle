@@ -1,0 +1,2 @@
+rootProject.name='concurrency_tools_practice'
+include ':app'
