@@ -3,6 +3,7 @@ package com.test.patterns.structure.proxy;
 import com.test.patterns.service.OrderService;
 import com.test.patterns.service.impl.OutOrderServiceImpl;
 
+import java.io.ObjectStreamException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -23,7 +24,8 @@ public class ProxyClient {
 //
 //        orderService.saveOrder();
 
-        OrderService proxy = (OrderService) loadProxy(new OutOrderServiceImpl());
+//        OrderService proxy = (OrderService) loadProxy(new OutOrderServiceImpl());
+        OrderService proxy = (OrderService) loadProxy2(new OutOrderServiceImpl());
         proxy.saveOrder();
 
         //其它业务代码。。。。
@@ -37,10 +39,8 @@ public class ProxyClient {
         Object proxy = constructor.newInstance(new InvocationHandler() {
             @Override
             public Object invoke(Object o, Method method, Object[] args) throws Throwable {
-
                 //下单前添加操作
                 System.out.println("添加下单前操作AAAAA");
-
                 Object result = method.invoke(target, args);
                 return result;
             }
@@ -49,5 +49,19 @@ public class ProxyClient {
         return proxy;
 
     }
+
+    public static Object loadProxy2 (final Object object) {
+        return Proxy.newProxyInstance(object.getClass().getClassLoader(),
+                object.getClass().getInterfaces(), new InvocationHandler() {
+                    @Override
+                    public Object invoke(Object o, Method method, Object[] args) throws Throwable {
+                        System.out.println("before 00-");
+                        Object result = method.invoke(object, args);
+                        System.out.println("after 111-");
+                        return result;
+                    }
+                });
+    }
+
 
 }
