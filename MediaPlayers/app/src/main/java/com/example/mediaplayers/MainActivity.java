@@ -33,16 +33,18 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
         surfaceView = findViewById(R.id.surfaceView);
         progressBar = findViewById(R.id.progressBar);
 
-        String url = "http://vfx.mtime.cn/Video/2019/02/04/mp4/190204084208765161.mp4";
+//        String url = "http://vfx.mtime.cn/Video/2019/02/04/mp4/190204084208765161.mp4";
+        String url = "http://www.w3school.com.cn/example/html5/mov_bbb.mp4";
+//        String url = "http://www.mp4";
 
         player = new MediaPlayer();
         try {
-            player.setDataSource(url);
+            player.setDataSource(url.replaceAll(" ", "%20"));
             holder = surfaceView.getHolder();
             holder.addCallback(new MyCallBack());
 
             Log.e("buder", "onPrepared start");
-            player.prepare();
+            player.prepareAsync();
             player.setOnPreparedListener(this);
             player.setOnVideoSizeChangedListener(this);
 

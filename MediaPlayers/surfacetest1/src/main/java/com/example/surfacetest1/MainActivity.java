@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
 
         // 4.0版本之下需要设置的属性
         // 设置Surface不维护自己的缓冲区，而是等待屏幕的渲染引擎将内容推送到界面
-        // sv.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+//         sv.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
         // 为进度条添加进度更改事件
         seekBar.setOnSeekBarChangeListener(change);

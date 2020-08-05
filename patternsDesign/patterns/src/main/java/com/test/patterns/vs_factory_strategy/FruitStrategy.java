@@ -1,4 +1,4 @@
-package com.test.patterns.create.vs_factory_strategy;
+package com.test.patterns.vs_factory_strategy;
 
 import com.test.patterns.entity.Fruit;
 import com.test.patterns.entity.fruit.Apple;

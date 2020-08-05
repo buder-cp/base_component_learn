@@ -10,7 +10,12 @@ public class ProxyOrder implements OrderService {
 
     @Override
     public int saveOrder() {
-        System.out.println("开始海外下订单");
+
+        //下单前添加操作
+        System.out.println("添加下单前操作000");
+
+
+        System.out.println("开始海外下订单111");
         return orderService.saveOrder();
     }
 }
