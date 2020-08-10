@@ -18,4 +18,19 @@ public class ProxyOrder implements OrderService {
         System.out.println("开始海外下订单111");
         return orderService.saveOrder();
     }
+
+    @Override
+    public void first() {
+
+    }
+
+    @Override
+    public int second() {
+        return 33;
+    }
+
+    @Override
+    public void third() {
+
+    }
 }

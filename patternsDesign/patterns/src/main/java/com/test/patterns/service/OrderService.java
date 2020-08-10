@@ -5,4 +5,9 @@ package com.test.patterns.service;
  */
 public interface OrderService {
     int saveOrder();
+
+    void first();
+    int second();
+    void third();
+
 }

@@ -11,4 +11,19 @@ public class OrderServiceImpl implements OrderService {
         System.out.println("下单成功，订单号： 888888");
         return 888888;
     }
+
+    @Override
+    public void first() {
+
+    }
+
+    @Override
+    public int second() {
+        return 32;
+    }
+
+    @Override
+    public void third() {
+
+    }
 }

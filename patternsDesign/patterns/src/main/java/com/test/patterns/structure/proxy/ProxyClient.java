@@ -26,7 +26,11 @@ public class ProxyClient {
 
 //        OrderService proxy = (OrderService) loadProxy(new OutOrderServiceImpl());
         OrderService proxy = (OrderService) loadProxy2(new OutOrderServiceImpl());
+
         proxy.saveOrder();
+        proxy.first();
+        proxy.second();
+        proxy.third();
 
         //其它业务代码。。。。
     }
@@ -50,14 +54,24 @@ public class ProxyClient {
 
     }
 
-    public static Object loadProxy2 (final Object object) {
+    public static Object loadProxy2(final Object object) {
         return Proxy.newProxyInstance(object.getClass().getClassLoader(),
                 object.getClass().getInterfaces(), new InvocationHandler() {
                     @Override
                     public Object invoke(Object o, Method method, Object[] args) throws Throwable {
-                        System.out.println("before 00-");
-                        Object result = method.invoke(object, args);
-                        System.out.println("after 111-");
+                        //会有传入的Object的相关方法调用，本例 OutOrderServiceImpl 中的
+                        //saveOrder first second third 这四个方法会传过来
+                        Object result = null;
+                        if (method.getName().equals("second")) {
+                            //仅在方法名为 second 的前后添加自己的特殊逻辑
+                            System.out.println("before *************");
+                            result = method.invoke(object, args);
+                            System.out.println("after -------------");
+                        } else {
+                            result = method.invoke(object, args);
+                        }
+
+
                         return result;
                     }
                 });
