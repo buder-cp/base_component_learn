@@ -2,6 +2,9 @@ package com.test.opensourceframework.rxjava;
 
 import android.util.Log;
 
+import com.trello.rxlifecycle2.android.ActivityEvent;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -11,7 +14,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
-public class RxJavaUse {
+public class RxJavaUse extends RxAppCompatActivity {
 
     private Disposable mDisposable;
 
@@ -33,6 +36,8 @@ public class RxJavaUse {
             }
         }).observeOn(AndroidSchedulers.mainThread())//观察者的执行线程
                 .subscribeOn(Schedulers.io())//被观察者的执行线程
+                .compose(bindUntilEvent(ActivityEvent.DESTROY))//方式一
+                .compose(bindToLifecycle())//方式二
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
