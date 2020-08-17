@@ -1,3 +1,4 @@
 rootProject.name='MediaPlayers'
 include ':app'
 include ':surfacetest1'
+include ':blackscreentest1'
