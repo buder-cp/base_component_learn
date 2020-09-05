@@ -67,4 +67,8 @@ dependencies {
     implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
     implementation 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.1'
     implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+
+    //OkHttp
+    implementation 'com.squareup.okhttp3:okhttp:3.14.2'
+
 }
