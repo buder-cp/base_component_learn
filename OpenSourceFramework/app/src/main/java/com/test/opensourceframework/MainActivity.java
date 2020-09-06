@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.test.opensourceframework.dagger2.DaggerMainComponent;
 import com.test.opensourceframework.dagger2.Flower;
 import com.test.opensourceframework.dagger2.MainModule;
+import com.test.opensourceframework.retrofit.GetRequest;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -58,8 +59,10 @@ public class MainActivity extends AppCompatActivity {
 //        daggerPrint();
         dagger2Print();
 
-    }
+        //retrofit
+        GetRequest.request();
 
+    }
     private void dagger2Print() {
         DaggerMainComponent.builder()
                 // 设置 MainModule 对象
