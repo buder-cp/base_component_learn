@@ -1,3 +1,4 @@
+include ':appuseage2'
 include ':appusagestate'
 include ':app'
 rootProject.name = "IQTest"
