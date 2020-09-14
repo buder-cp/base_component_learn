@@ -20,7 +20,7 @@ public class DataRequestPOST {
 
     private static final String URL = "http://121.36.46.118:8080/api/page/cis-render";
 
-    public static void doRequestByQueryParameter() {
+    public static void doRequest() {
         Log.e("buder", "开始请求");
         MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
         RequestBody requestBody = RequestBody.create(mediaType, getJsonString());

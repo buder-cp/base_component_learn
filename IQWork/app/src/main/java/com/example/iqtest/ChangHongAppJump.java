@@ -14,12 +14,12 @@ public class ChangHongAppJump {
                  * start service
                  */
                 //全部设置 OK
-//                Intent intent = new Intent();
-//                intent.setPackage("com.changhong.easysetting");
-//                intent.setAction("Changhong.EasySetting");
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                intent.putExtra("MainPage", true);
-//                context.startService(intent);
+                Intent intent = new Intent();
+                intent.setPackage("com.changhong.easysetting");
+                intent.setAction("Changhong.EasySetting");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("MainPage", true);
+                context.startService(intent);
 
                 //信号源 OK
 //                Intent intent1 = new Intent();

@@ -21,7 +21,7 @@ public class DataRequestGET {
 
     public static final String TAG = "buder";
 
-    public static void doPost() {
+    public static void doRequest() {
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
         map.put("apkVer", "666");
         map.put("areaIdCity", "666");
