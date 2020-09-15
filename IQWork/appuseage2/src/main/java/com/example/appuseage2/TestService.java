@@ -23,15 +23,19 @@ import java.util.concurrent.TimeUnit;
 public class TestService extends Service {
     public static final String TAG = "TestService";
     private MyThread myThread = null;
+
     private static class MyThread extends Thread {
         private Context context;
         private boolean isRun = true;
+
         private MyThread(Context context) {
             this.context = context;
         }
+
         public void setStop() {
             isRun = false;
         }
+
         @Override
         public void run() {
             while (isRun) {
@@ -65,7 +69,7 @@ public class TestService extends Service {
                         }
                         topActivity = stats.get(j).getPackageName();
                     }
-                    Log.i(TAG, "top running app is : "+topActivity);
+                    Log.i(TAG, "top running app is : " + topActivity);
                 }
             }
         }

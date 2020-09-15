@@ -3,8 +3,7 @@
     package="com.example.appuseage2">
 
     <!--注意这里：添加权限-->
-    <uses-permission
-        android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
 
     <application
         android:allowBackup="true"
