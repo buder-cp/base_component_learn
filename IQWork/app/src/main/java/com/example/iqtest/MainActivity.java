@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.iqtest.bluetooth.BluetoothActivity;
+import com.example.iqtest.bluetooth.BluetoothNewActivity;
 import com.example.iqtest.erqi.DataRequestPOST;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * 长虹一期应用跳转调试
          */
-        ChangHongAppJump.testChangHongApp(this, findViewById(R.id.jump_btn));
+//        ChangHongAppJump.testChangHongApp(this, findViewById(R.id.jump_btn));
 
         /**
          * 长虹一期应用APP请求接口
@@ -28,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
         /**
          * 测试蓝牙
          */
-        BluetoothActivity.goToBluetoothTest(MainActivity.this, findViewById(R.id.btn));
+//        BluetoothActivity.goToBluetoothTest(MainActivity.this, findViewById(R.id.Bluetooth_btn));
+        BluetoothNewActivity.goToBluetoothNewTest(MainActivity.this, findViewById(R.id.Bluetooth_btn));
 
         /**
          * 长虹二期腾讯、优酷tab请求接口
