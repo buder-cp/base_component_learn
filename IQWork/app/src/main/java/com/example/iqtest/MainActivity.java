@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.iqtest.app.AppInfoUtils;
 import com.example.iqtest.bluetooth.BluetoothActivity;
 import com.example.iqtest.bluetooth.BluetoothNewActivity;
 import com.example.iqtest.erqi.DataRequestPOST;
@@ -16,6 +17,13 @@ public class MainActivity extends AppCompatActivity {
         Log.e("MainActivity", "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /**
+         * 长虹二期，过滤获取能通过图标启动的 系统应用、用户安装的三方应用
+         */
+        AppInfoUtils.getSpecialPackages(this, findViewById(R.id.jump_btn));
+
+
         /**
          * 长虹一期应用跳转调试
          */
