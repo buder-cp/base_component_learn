@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * 长虹一期应用跳转调试
          */
-//        ChangHongAppJump.testChangHongApp(this, findViewById(R.id.jump_btn));
+        ChangHongAppJump.testChangHongApp(this, findViewById(R.id.jump_btn));
 
         /**
          * 长虹一期应用APP请求接口

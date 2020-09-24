@@ -1,5 +1,6 @@
 package com.example.iqtest;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
@@ -14,12 +15,12 @@ public class ChangHongAppJump {
                  * start service
                  */
                 //全部设置 OK
-                Intent intent = new Intent();
-                intent.setPackage("com.changhong.easysetting");
-                intent.setAction("Changhong.EasySetting");
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("MainPage", true);
-                context.startService(intent);
+//                Intent intent = new Intent();
+//                intent.setPackage("com.changhong.easysetting");
+//                intent.setAction("Changhong.EasySetting");
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.putExtra("MainPage", true);
+//                context.startService(intent);
 
                 //信号源 OK
 //                Intent intent1 = new Intent();
@@ -42,11 +43,11 @@ public class ChangHongAppJump {
 //                context.startActivity(intent);
 
                 //多屏互动，云端配置，投屏配置上，需要使用 action + 参数，才可以跳转到对应TAB
-//                Intent intent = new Intent();
-//                intent.setAction("com.changhong.aiqiyi.MultiScrInteraction.select_page");
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                intent.putExtra("multi_scr_select_page", 9);
-//                context.startActivity(intent);
+                Intent intent = new Intent();
+                intent.setAction("com.changhong.aiqiyi.MultiScrInteraction.select_page");
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("multi_scr_select_page", 9);
+                context.startActivity(intent);
 
 
 
@@ -97,7 +98,7 @@ public class ChangHongAppJump {
 //                intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                context.startActivity(intent3);
 
-                //好剧多多分类 填写参数无效，和首页跳转一致
+                //好剧多多跳转至对应分类 OK
 //                Intent intent = new Intent("com.changhong.video.home");
 //                intent.setComponent(new ComponentName("com.changhong.video.home",
 //                        "com.changhong.video.home.MainActivity"));
