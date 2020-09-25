@@ -19,4 +19,12 @@
         android:layout_marginTop="20dp"
         android:text="Bluetooth" />
 
+    <Button
+        android:id="@+id/native_heap_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Bluetooth_btn"
+        android:layout_marginTop="20dp"
+        android:text="heap_analycis" />
+
 </RelativeLayout>

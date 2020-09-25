@@ -1,5 +1,6 @@
 package com.example.appuseage2;
 
+import android.app.Activity;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     Button btnStart, btnStop;
     TextView tvInfo;
     private static final int MY_PERMISSIONS_REQUEST_PACKAGE_USAGE_STATS = 1101;

@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".bluetooth.BluetoothActivity"></activity>
-        <activity android:name=".bluetooth.BluetoothNewActivity"></activity>
+        <activity android:name=".nativeHeap.NativeHeapActivity"></activity>
+        <activity android:name=".bluetooth.BluetoothActivity" />
+        <activity android:name=".bluetooth.BluetoothNewActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
