@@ -17,15 +17,15 @@ public class readFileContent {
     private static final String DEVICE_MODEL = "model";
 
 
-    private static void getDeviceInfo() {
-        String mFilePath = Environment.getDataDirectory().getParentFile() + "tmp/tvinfo";
-        Log.d(TAG, "Get data from file=", mFilePath);
-        if (fileIsExists(mFilePath)) {
-            readFile(mFilePath);
-        } else {
-            Log.e(TAG, "tvinfo file not exist.");
-        }
-    }
+//    private static void getDeviceInfo() {
+//        String mFilePath = Environment.getDataDirectory().getParentFile() + "tmp/tvinfo";
+//        Log.d(TAG, "Get data from file=", mFilePath);
+//        if (fileIsExists(mFilePath)) {
+//            readFile(mFilePath);
+//        } else {
+//            Log.e(TAG, "tvinfo file not exist.");
+//        }
+//    }
 
     public static void readFile(String filePath) {
         BufferedReader in = null;

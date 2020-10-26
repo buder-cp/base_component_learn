@@ -43,11 +43,11 @@ public class ChangHongAppJump {
 //                context.startActivity(intent);
 
                 //多屏互动，云端配置，投屏配置上，需要使用 action + 参数，才可以跳转到对应TAB
-                Intent intent = new Intent();
-                intent.setAction("com.changhong.aiqiyi.MultiScrInteraction.select_page");
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("multi_scr_select_page", 9);
-                context.startActivity(intent);
+//                Intent intent = new Intent();
+//                intent.setAction("com.changhong.aiqiyi.MultiScrInteraction.select_page");
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.putExtra("multi_scr_select_page", 9);
+//                context.startActivity(intent);
 
 
 
@@ -126,6 +126,41 @@ public class ChangHongAppJump {
 //                        Intent.FLAG_ACTIVITY_CLEAR_TOP |
 //                        Intent.FLAG_ACTIVITY_SINGLE_TOP);
 //                startActivity(intent);
+
+                /**
+                 * **********************长虹二期本地APP跳转测试************************************
+                 */
+
+                //跳转电视管家--网络助手 出错
+//                Intent intent = new Intent();
+//                intent.setPackage("com.changhong.tvmanager");//报错包名错误
+//                intent.setAction("com.changhong.tvmanager.nethelper");
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.putExtra("source", "aqylauncher");
+//                context.startActivity(intent);
+
+                //我的历史 OK
+//                Intent intentStart = new Intent("TV_LongPressHomeKey");
+//                intentStart.setPackage("com.changhong.chistory");
+//                context.sendBroadcast(intentStart);
+                Intent intent1 = new Intent();
+                intent1.setComponent(new ComponentName("com.changhong.chistory", "com.changhong.chistory.MainActivity"));
+                intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent1);
+
+                //跳转电视管家--智能诊断 OK
+//                Intent intent2 = new Intent();
+//                intent2.setPackage("com.changhong.tvmanager");
+//                intent2.setAction("com.changhong.tvmanager.FaultDetection");
+//                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent2.putExtra("source", "aqylauncher");
+//                context.startActivity(intent2);
+
+                //电视管家 OK
+//                Intent intent = context.getPackageManager()
+//                        .getLaunchIntentForPackage("com.changhong.tvmanager");
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(intent);
 
 
             }
