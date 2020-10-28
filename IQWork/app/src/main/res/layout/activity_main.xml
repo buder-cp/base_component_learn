@@ -27,4 +27,12 @@
         android:layout_marginTop="20dp"
         android:text="heap_analycis" />
 
+    <Button
+        android:id="@+id/signal_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/native_heap_test"
+        android:layout_marginTop="20dp"
+        android:text="heap_analycis" />
+
 </RelativeLayout>

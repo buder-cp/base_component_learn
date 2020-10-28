@@ -13,10 +13,12 @@ import com.example.iqtest.bluetooth.BluetoothActivity;
 import com.example.iqtest.bluetooth.BluetoothNewActivity;
 import com.example.iqtest.erqi.DataRequestPOST;
 import com.example.iqtest.nativeHeap.NativeHeapActivity;
+import com.example.iqtest.signalTest.SignalTest;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button heapTestBtn;
+    Button signalBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         heapTestBtn = findViewById(R.id.native_heap_test);
+        signalBtn = findViewById(R.id.signal_info);
         heapTestBtn.setOnClickListener(this);
+        signalBtn.setOnClickListener(this);
 
         /**
          * 长虹二期，过滤获取能通过图标启动的 系统应用、用户安装的三方应用
@@ -60,6 +64,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (view.getId() == R.id.native_heap_test) {
 //            Intent intent = new Intent(MainActivity.this, NativeHeapActivity.class);
 //            startActivity(intent);
+        } else if (view.getId() == R.id.signal_info) {
+            SignalTest.getSignal(this);
+//            SignalTest.getSignalIsOk(this);
+//            SignalTest.switchSignal(this);
         }
     }
 }

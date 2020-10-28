@@ -131,7 +131,7 @@ public class ChangHongAppJump {
                  * **********************长虹二期本地APP跳转测试************************************
                  */
 
-                //跳转电视管家--网络助手 出错
+                //跳转电视管家--网络助手 长虹还未开发完毕 出错
 //                Intent intent = new Intent();
 //                intent.setPackage("com.changhong.tvmanager");//报错包名错误
 //                intent.setAction("com.changhong.tvmanager.nethelper");
@@ -143,20 +143,21 @@ public class ChangHongAppJump {
 //                Intent intentStart = new Intent("TV_LongPressHomeKey");
 //                intentStart.setPackage("com.changhong.chistory");
 //                context.sendBroadcast(intentStart);
-                Intent intent1 = new Intent();
-                intent1.setComponent(new ComponentName("com.changhong.chistory", "com.changhong.chistory.MainActivity"));
-                intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent1);
+
+//                Intent intent1 = new Intent();
+//                intent1.setComponent(new ComponentName("com.changhong.chistory", "com.changhong.chistory.MainActivity"));
+//                intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(intent1);
 
                 //跳转电视管家--智能诊断 OK
-//                Intent intent2 = new Intent();
-//                intent2.setPackage("com.changhong.tvmanager");
-//                intent2.setAction("com.changhong.tvmanager.FaultDetection");
-//                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                intent2.putExtra("source", "aqylauncher");
-//                context.startActivity(intent2);
+                Intent intent2 = new Intent();
+//                intent2.setPackage("com.changhong.tvmanager");配置时不需要这个
+                intent2.putExtra("source", "aqylauncher");
+                intent2.setAction("com.changhong.tvmanager.FaultDetection");
+                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent2);
 
-                //电视管家 OK
+                //更多优化就是电视管家的启动方式 电视管家 OK
 //                Intent intent = context.getPackageManager()
 //                        .getLaunchIntentForPackage("com.changhong.tvmanager");
 //                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
