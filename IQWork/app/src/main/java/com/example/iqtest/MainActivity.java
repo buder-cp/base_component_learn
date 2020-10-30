@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /**
          * 长虹一期应用跳转调试
          */
-        ChangHongAppJump.testChangHongApp(this, findViewById(R.id.jump_btn));
+//        ChangHongAppJump.testChangHongApp(this, findViewById(R.id.jump_btn));
 
         /**
          * 长虹一期应用APP请求接口
@@ -65,9 +65,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            Intent intent = new Intent(MainActivity.this, NativeHeapActivity.class);
 //            startActivity(intent);
         } else if (view.getId() == R.id.signal_info) {
-            SignalTest.getSignal(this);
+//            SignalTest.getSignal(this);
 //            SignalTest.getSignalIsOk(this);
 //            SignalTest.switchSignal(this);
+            SignalTest.getSignalNew(this);
         }
     }
 }

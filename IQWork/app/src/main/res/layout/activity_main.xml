@@ -33,6 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/native_heap_test"
         android:layout_marginTop="20dp"
-        android:text="heap_analycis" />
+        android:text="signal_info" />
 
 </RelativeLayout>

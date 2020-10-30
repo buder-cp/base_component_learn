@@ -15,6 +15,7 @@ import com.changhong.tvos.common.exception.SourceNotFoundException;
 import com.changhong.tvos.common.exception.TVManagerNotInitException;
 import com.changhong.tvos.model.EnumAudioSystem;
 import com.changhong.tvos.model.EnumInputSource;
+import com.changhong.tvos.model.SourceInfo;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -22,7 +23,22 @@ import java.util.List;
 
 public class SignalTest {
 
-    private static String TAG = "signal";
+    private static String TAG = "TAGsignal";
+
+    //新获取信源列表
+    public static List<SourceInfo> getSignalNew(Context context) {
+        List<SourceInfo> list = null;
+        try {
+            ITVPlayer tvm = TVManager.getInstance(context).getTVPlayer();
+            list = tvm.getSourceInfoList();
+            for (SourceInfo info : list) {
+                Log.d(TAG, info.mSourceName + " " + info.mSourceEnum + " " + info.mPluged);
+            }
+        } catch (TVManagerNotInitException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 
     //获取源列表
     public static void getSignal(Context context) {
@@ -72,8 +88,6 @@ public class SignalTest {
 //            e.printStackTrace();
 //        }
 //    }
-
-
 
 
 //    public static boolean isPlugin(Context context, EnumInputSource inputSource) {

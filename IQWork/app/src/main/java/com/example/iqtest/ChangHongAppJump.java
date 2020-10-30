@@ -132,8 +132,8 @@ public class ChangHongAppJump {
                  */
 
                 //跳转电视管家--网络助手 长虹还未开发完毕 出错
-//                Intent intent = new Intent();
 //                intent.setPackage("com.changhong.tvmanager");//报错包名错误
+//                Intent intent = new Intent();
 //                intent.setAction("com.changhong.tvmanager.nethelper");
 //                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                intent.putExtra("source", "aqylauncher");
