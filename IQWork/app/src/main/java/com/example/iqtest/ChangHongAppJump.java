@@ -77,10 +77,10 @@ public class ChangHongAppJump {
 //                context.startActivity(intent3);
 
                 //全部应用 不行
-//                Intent intent = context.getPackageManager()
-//                        .getLaunchIntentForPackage("com.changhong.cuk.CHAppManager");
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                context.startActivity(intent);
+                Intent intent = context.getPackageManager()
+                        .getLaunchIntentForPackage("com.changhong.cuk.CHAppManager");
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
 //
 //                Intent intent1 = new Intent();
 //                intent1.setComponent(new ComponentName("com.changhong.cuk.CHAppManager",
@@ -150,12 +150,12 @@ public class ChangHongAppJump {
 //                context.startActivity(intent1);
 
                 //跳转电视管家--智能诊断 OK
-                Intent intent2 = new Intent();
-//                intent2.setPackage("com.changhong.tvmanager");配置时不需要这个
-                intent2.putExtra("source", "aqylauncher");
-                intent2.setAction("com.changhong.tvmanager.FaultDetection");
-                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent2);
+//                Intent intent2 = new Intent();
+////                intent2.setPackage("com.changhong.tvmanager");配置时不需要这个
+//                intent2.putExtra("source", "aqylauncher");
+//                intent2.setAction("com.changhong.tvmanager.FaultDetection");
+//                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(intent2);
 
                 //更多优化就是电视管家的启动方式 电视管家 OK
 //                Intent intent = context.getPackageManager()

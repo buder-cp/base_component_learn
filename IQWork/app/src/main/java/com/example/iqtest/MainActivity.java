@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /**
          * 长虹二期，过滤获取能通过图标启动的 系统应用、用户安装的三方应用
          */
-        AppInfoUtils.getSpecialPackages(this, findViewById(R.id.jump_btn));
+//        AppInfoUtils.getSpecialPackages(this, findViewById(R.id.jump_btn));
 
 
         /**
          * 长虹一期应用跳转调试
          */
-//        ChangHongAppJump.testChangHongApp(this, findViewById(R.id.jump_btn));
+        ChangHongAppJump.testChangHongApp(this, findViewById(R.id.jump_btn));
 
         /**
          * 长虹一期应用APP请求接口
