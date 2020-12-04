@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">login_mvp</string>
+
+    <string name="service_error">服务器出错啦~~~</string>
+    <string name="not_found">请求的资源不存在~~~</string>
+    <string name="timeout">请求超时~~~</string>
+    <string name="unknown_error">未知错误~~~</string>
+    <string name="network_error">网络有问题~~~</string>
+
+    <string name="login_register">注册</string>
+    <string name="login_login">登录</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="prompt_username">用户名</string>
+    <string name="prompt_password">密码</string>
+    <string name="prompt_password_confirm">确认密码(注册需填写)</string>
 </resources>
