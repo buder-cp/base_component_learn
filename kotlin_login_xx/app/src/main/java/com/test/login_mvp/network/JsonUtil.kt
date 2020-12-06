@@ -89,7 +89,8 @@ object JsonUtil {
                     outBuffer.append(value.toChar())
                 } else {
                     if (aChar == 't') aChar = '\t' else if (aChar == 'r') aChar =
-                        '\r' else if (aChar == 'n') aChar = '\n' else if (aChar == 'f') aChar = '\u000C'
+                        '\r' else if (aChar == 'n') aChar = '\n' else if (aChar == 'f') aChar =
+                        '\u000C'
                     outBuffer.append(aChar)
                 }
             } else outBuffer.append(aChar)

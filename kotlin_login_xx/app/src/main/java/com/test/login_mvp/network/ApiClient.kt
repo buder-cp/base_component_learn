@@ -9,17 +9,18 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiClient private constructor(){//这里应该是一个单例
+class ApiClient private constructor() {//这里应该是一个单例
 
     //需要返回一个单例
 
     lateinit var service: WanAndroidApi
     lateinit var retrofit: Retrofit
 
-    private object Holder{
+    private object Holder {
         val INSTANCE = ApiClient()
     }
-    companion object{
+
+    companion object {
         val instance by lazy { Holder.INSTANCE }
     }
 
@@ -44,7 +45,7 @@ class ApiClient private constructor(){//这里应该是一个单例
         }
     }
 
-    fun createRetrofit(){
+    fun createRetrofit() {
 //        val okHttpClient = OkHttpClient().newBuilder()
 //            .addInterceptor(HttpLoggingInterceptor().setLevel(//if else
 //                if(BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
@@ -53,9 +54,12 @@ class ApiClient private constructor(){//这里应该是一个单例
 //            .build()
 
         val okHttpClient = OkHttpClient().newBuilder().apply {
-            addInterceptor(HttpLoggingInterceptor().setLevel(//if else
-                if(BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
-                else HttpLoggingInterceptor.Level.NONE))
+            addInterceptor(
+                HttpLoggingInterceptor().setLevel(//if else
+                    if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+                    else HttpLoggingInterceptor.Level.NONE
+                )
+            )
         }.build()
 
         retrofit = Retrofit.Builder()
@@ -67,9 +71,7 @@ class ApiClient private constructor(){//这里应该是一个单例
         service = retrofit.create(WanAndroidApi::class.java)
     }
 
-    fun <T> getService(service: Class<T>):T = retrofit.create(service)
-
-
+    fun <T> getService(service: Class<T>): T = retrofit.create(service)
 
 
 }

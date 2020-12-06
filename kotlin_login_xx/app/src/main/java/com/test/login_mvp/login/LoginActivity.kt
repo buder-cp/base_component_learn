@@ -15,12 +15,13 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : RxAppCompatActivity(), LoginView {
 
-    private val  loginPresenter: LoginPresenterImpl by lazy {
+    private val loginPresenter: LoginPresenterImpl by lazy {
         LoginPresenterImpl(this)
     }
 
     //private static final String TAG = "Zero";
-    companion object{//伴生对象 一个类只能有一个
+    companion object {
+        //伴生对象 一个类只能有一个
         val TAG = "Zero"
     }
 
@@ -44,34 +45,38 @@ class LoginActivity : RxAppCompatActivity(), LoginView {
         loginPresenter.dettachView()
     }
 
-    private val onClickListener = View.OnClickListener {
-        view ->
-        when(view.id){
-            R.id.login  ->{
+    private val onClickListener = View.OnClickListener { view ->
+        when (view.id) {
+            R.id.login -> {
                 //调用登录
                 val usernameStr = username.text.toString()
                 val passwordStr = password.text.toString()
-                Log.i(TAG,"username: $usernameStr, password: $passwordStr")
-                loginPresenter.loginWanAndroid(this@LoginActivity,usernameStr,passwordStr)
+                Log.i(TAG, "username: $usernameStr, password: $passwordStr")
+                loginPresenter.loginWanAndroid(this@LoginActivity, usernameStr, passwordStr)
             }
-            R.id.register ->{
+            R.id.register -> {
                 //调用注册
                 val usernameStr = username.text.toString()
                 val passwordStr = password.text.toString()
-                loginPresenter.registerWanAndroid(this@LoginActivity,usernameStr,passwordStr,passwordStr)
+                loginPresenter.registerWanAndroid(
+                    this@LoginActivity,
+                    usernameStr,
+                    passwordStr,
+                    passwordStr
+                )
             }
         }
 
     }
 
     override fun loginSucces(loginBean: LoginBean) {
-        Toast.makeText(this@LoginActivity,loginBean.toString(),Toast.LENGTH_LONG).show()
-        Log.i(TAG,"loginBean: $loginBean")
+        Toast.makeText(this@LoginActivity, loginBean.toString(), Toast.LENGTH_LONG).show()
+        Log.i(TAG, "loginBean: $loginBean")
     }
 
     override fun loginFailure(errorMsg: String) {
         toast("")
-        Log.i("Zero","failure")
+        Log.i("Zero", "failure")
     }
 
 

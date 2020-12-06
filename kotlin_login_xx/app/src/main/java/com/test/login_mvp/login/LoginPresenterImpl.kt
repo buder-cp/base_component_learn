@@ -3,8 +3,9 @@ package com.test.login_mvp.login
 import android.content.Context
 import com.test.login_mvp.bean.LoginBean
 
-class LoginPresenterImpl(private var loginView: LoginView?) : LoginPresenter,LoginPresenter.OnLoginListener
-,LoginPresenter.OnRegisterListener{
+class LoginPresenterImpl(private var loginView: LoginView?) : LoginPresenter,
+    LoginPresenter.OnLoginListener
+    , LoginPresenter.OnRegisterListener {
 
     private val loginModue: LoginModue = LoginModuleImpl()
     override fun attachView() {
@@ -17,7 +18,7 @@ class LoginPresenterImpl(private var loginView: LoginView?) : LoginPresenter,Log
     }
 
     override fun loginWanAndroid(context: Context, username: String, password: String) {
-        loginModue.login(context,username,password,this)
+        loginModue.login(context, username, password, this)
     }
 
     override fun registerWanAndroid(
@@ -26,7 +27,7 @@ class LoginPresenterImpl(private var loginView: LoginView?) : LoginPresenter,Log
         password: String,
         repassword: String
     ) {
-        loginModue.register(context,username,password,password,this)
+        loginModue.register(context, username, password, password, this)
     }
 
     override fun loginSuccess(loginBean: LoginBean) {

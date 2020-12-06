@@ -31,7 +31,6 @@ abstract class ApiResponse<T>(private val context: Context) : Observer<ResponseW
     }
 
 
-
     override fun onNext(t: ResponseWrapper<out T>) {
         Log.i("Zero", "onNext: $t")
         success(t.data)

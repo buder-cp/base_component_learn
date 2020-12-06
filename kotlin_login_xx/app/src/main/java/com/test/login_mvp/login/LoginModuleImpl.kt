@@ -13,38 +13,41 @@ class LoginModuleImpl : LoginModue {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun login(context: Context,
-                       username: String,
-                       password: String,
-                       onLoginListener: LoginPresenter.OnLoginListener
+    override fun login(
+        context: Context,
+        username: String,
+        password: String,
+        onLoginListener: LoginPresenter.OnLoginListener
     ) {
-        ApiClient.instance.getService(WanAndroidApi::class.java).loginWanAndroid(username,password)
+        ApiClient.instance.getService(WanAndroidApi::class.java).loginWanAndroid(username, password)
             .compose(NetworkScheduler.compose())
-            .subscribe(object: ApiResponse<LoginBean>(context){
+            .subscribe(object : ApiResponse<LoginBean>(context) {
                 override fun success(data: LoginBean) {
-                        onLoginListener.loginSuccess(loginBean = valide(data))
+                    onLoginListener.loginSuccess(loginBean = valide(data))
                 }
 
                 override fun failure(statusCode: Int, apiError: ApiError) {
-                        onLoginListener.loginFailed(apiError.message)
+                    onLoginListener.loginFailed(apiError.message)
                 }
 
             })
     }
 
-    fun valide(loginBean: LoginBean):LoginBean{
+    fun valide(loginBean: LoginBean): LoginBean {
         return loginBean
     }
 
-    override fun register(context: Context,
+    override fun register(
+        context: Context,
         username: String,
         password: String,
         repassword: String,
         onRegisterListener: LoginPresenter.OnRegisterListener
     ) {
-        ApiClient.instance.getService(WanAndroidApi::class.java).registerWanAndroid(username,password,repassword)
+        ApiClient.instance.getService(WanAndroidApi::class.java)
+            .registerWanAndroid(username, password, repassword)
             .compose(NetworkScheduler.compose())
-            .subscribe(object: ApiResponse<LoginBean>(context){
+            .subscribe(object : ApiResponse<LoginBean>(context) {
                 override fun success(data: LoginBean) {
                     onRegisterListener.registerSuccess(loginBean = data)
                 }

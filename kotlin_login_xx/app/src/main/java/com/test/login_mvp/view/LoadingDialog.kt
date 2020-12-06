@@ -7,7 +7,7 @@ import com.test.login_mvp.R
 object LoadingDialog {
     private var dialog: Dialog? = null
 
-    fun show(context: Context){
+    fun show(context: Context) {
         cancle()
         dialog = Dialog(context)
         dialog.also {
@@ -26,7 +26,7 @@ object LoadingDialog {
 
     }
 
-    fun cancle(){
+    fun cancle() {
         dialog?.dismiss()
     }
 }

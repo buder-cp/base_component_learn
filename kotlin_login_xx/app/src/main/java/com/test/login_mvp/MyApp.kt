@@ -12,7 +12,7 @@ import com.test.login_mvp.network.ApiClient
 //    }
 //    interface InnerDB{}
 //}
-class MyApp : Application(){
+class MyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
