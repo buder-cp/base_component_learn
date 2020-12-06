@@ -7,18 +7,18 @@ class LoginPresenterImpl(private var loginView: LoginView?) : LoginPresenter,
     LoginPresenter.OnLoginListener
     , LoginPresenter.OnRegisterListener {
 
-    private val loginModue: LoginModue = LoginModuleImpl()
+    private val loginModule: LoginModue = LoginModuleImpl()
     override fun attachView() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun dettachView() {
-        loginView = null
-        loginModue.cancleRequst()
+//        loginView = null
+//        loginModue.cancleRequst()
     }
 
     override fun loginWanAndroid(context: Context, username: String, password: String) {
-        loginModue.login(context, username, password, this)
+        loginModule.login(context, username, password, this)
     }
 
     override fun registerWanAndroid(
@@ -27,7 +27,7 @@ class LoginPresenterImpl(private var loginView: LoginView?) : LoginPresenter,
         password: String,
         repassword: String
     ) {
-        loginModue.register(context, username, password, password, this)
+        loginModule.register(context, username, password, password, this)
     }
 
     override fun loginSuccess(loginBean: LoginBean) {

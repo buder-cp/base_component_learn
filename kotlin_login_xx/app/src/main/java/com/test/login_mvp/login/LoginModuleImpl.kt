@@ -9,8 +9,8 @@ import com.test.login_mvp.network.ApiResponse
 import com.test.login_mvp.network.NetworkScheduler
 
 class LoginModuleImpl : LoginModue {
-    override fun cancleRequst() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun cancelRequest() {
+
     }
 
     override fun login(
@@ -23,7 +23,7 @@ class LoginModuleImpl : LoginModue {
             .compose(NetworkScheduler.compose())
             .subscribe(object : ApiResponse<LoginBean>(context) {
                 override fun success(data: LoginBean) {
-                    onLoginListener.loginSuccess(loginBean = valide(data))
+                    onLoginListener.loginSuccess(data)
                 }
 
                 override fun failure(statusCode: Int, apiError: ApiError) {
@@ -31,10 +31,6 @@ class LoginModuleImpl : LoginModue {
                 }
 
             })
-    }
-
-    fun valide(loginBean: LoginBean): LoginBean {
-        return loginBean
     }
 
     override fun register(

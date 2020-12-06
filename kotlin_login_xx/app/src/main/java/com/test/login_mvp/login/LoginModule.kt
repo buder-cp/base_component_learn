@@ -3,7 +3,7 @@ package com.test.login_mvp.login
 import android.content.Context
 
 interface LoginModue {
-    fun cancleRequst()
+    fun cancelRequest()
     fun login(
         context: Context,
         username: String,

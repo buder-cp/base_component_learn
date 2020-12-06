@@ -8,16 +8,18 @@ import android.widget.Toast
 import com.test.login_mvp.R
 import com.test.login_mvp.bean.LoginBean
 import com.test.login_mvp.toast
-import com.trello.rxlifecycle2.android.ActivityEvent
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
-import com.trello.rxlifecycle2.kotlin.bindUntilEvent
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : RxAppCompatActivity(), LoginView {
 
-    private val loginPresenter: LoginPresenterImpl by lazy {
-        LoginPresenterImpl(this)
-    }
+    //loginPresenter初始化方式二：调用注册登录有问题
+//    private val loginPresenter: LoginPresenterImpl by lazy {
+//        LoginPresenterImpl(this)
+//    }
+
+    //loginPresenter初始化方式一：
+    private lateinit var loginPresenter : LoginPresenter
 
     //private static final String TAG = "Zero";
     companion object {
@@ -29,20 +31,18 @@ class LoginActivity : RxAppCompatActivity(), LoginView {
 //        val TAG1 = "Zero"
 //    }
 
-    lateinit var presenter: LoginPresenter
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-//        loginPresenter = LoginPresenterImpl(this)
+        loginPresenter = LoginPresenterImpl(this)//loginPresenter初始化方式一：
         login.setOnClickListener(onClickListener)
         register.setOnClickListener(onClickListener)
-        loginPresenter.attachView()
+//        loginPresenter.attachView()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        loginPresenter.dettachView()
+//        loginPresenter.dettachView()
     }
 
     private val onClickListener = View.OnClickListener { view ->
