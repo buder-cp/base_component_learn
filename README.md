@@ -54,3 +54,5 @@ recyclerView多布局基础封装
 
 cnw_2-7-liveData简单示例 -- cnw_jetpack_project/2-7-liveData/
 
+cnw_2-8-viewModel简单示例 -- cnw_jetpack_project/2-8-viewModel/
+
