@@ -1,0 +1,2 @@
+include ':vmdemo'
+rootProject.name = "demo"
