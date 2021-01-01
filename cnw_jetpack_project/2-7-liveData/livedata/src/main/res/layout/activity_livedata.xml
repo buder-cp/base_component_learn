@@ -24,11 +24,11 @@
             android:textSize="24sp"
             android:text="当前liveData的值: " />
 
-        <!--<androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_mapped_data_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Map后liveData值: " />-->
+            android:text="Map后liveData值: " />
 
 
         <FrameLayout
@@ -68,7 +68,7 @@
                 android:padding="5dp"
                 android:text="改变LiveData数据" />
 
-            <!--<Button
+            <Button
                 android:id="@+id/btn_change1_live"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="5dp"
-                android:text="变LiveTwo" />-->
+                android:text="变LiveTwo" />
         </LinearLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
