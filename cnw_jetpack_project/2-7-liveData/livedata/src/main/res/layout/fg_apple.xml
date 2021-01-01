@@ -8,9 +8,9 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Apple Fragment"
+        android:text="Apple Fragment中数据变化："
         android:textColor="@color/colorPrimary"
-        android:textSize="15sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
