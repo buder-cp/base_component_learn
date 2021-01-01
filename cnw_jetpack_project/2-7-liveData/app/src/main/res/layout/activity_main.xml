@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".MainActivity">
+
+	<TextView
+		android:id="@+id/tv_center_main"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="居中的View"
+		android:textColor="@android:color/holo_green_dark"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintHorizontal_bias="0.5"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.3" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+		android:id="@+id/tv_left_start"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="20dp"
+		app:layout_constraintHorizontal_chainStyle="spread"
+		android:text="居中居左"
+		android:background="@color/colorPrimaryDark"
+		app:layout_constraintHorizontal_weight="2"
+		app:layout_constraintEnd_toStartOf="@id/tv_bb"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+		android:id="@+id/tv_bb"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:minHeight="30dp"
+		android:gravity="center"
+		android:background="@color/colorAccent"
+		app:layout_constraintHorizontal_weight="1"
+		android:text="文贝贝"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_goneMarginStart="150dp"
+		app:layout_constraintBottom_toBottomOf="@id/tv_left_start"
+		app:layout_constraintTop_toTopOf="@id/tv_left_start"
+		app:layout_constraintStart_toEndOf="@id/tv_left_start" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+		android:id="@+id/tv_right_end"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="居中居右"
+		app:layout_constraintBaseline_toBaselineOf="@id/tv_left_start"
+		app:layout_constraintEnd_toEndOf="parent" />
+
+	<androidx.constraintlayout.widget.Placeholder
+		android:id="@+id/ph_main"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@color/colorPrimary"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+		android:id="@+id/tv_holder"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="占位符的"
+		app:layout_constraintBaseline_toBaselineOf="@id/tv_left_start"
+		app:layout_constraintEnd_toEndOf="parent" />
+
+
+	<androidx.appcompat.widget.AppCompatTextView
+		android:id="@+id/tv_angle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="竖直-->120度"
+		android:textColor="@android:color/holo_red_dark"
+		app:layout_constraintCircle="@id/tv_center_main"
+		app:layout_constraintCircleAngle="120"
+		app:layout_constraintCircleRadius="150dp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/line_main"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		app:layout_constraintGuide_percent="0.3" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+		android:id="@+id/tv_line_right"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="200dp"
+		android:text="line右侧"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toEndOf="@id/line_main" />
+
+
+	<Button
+		android:id="@+id/btn_one"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="按钮1"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<Button
+		android:id="@+id/btn_two"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:text="按钮2"
+		app:layout_constraintDimensionRatio="W,4:1"
+		app:layout_constraintStart_toStartOf="@id/btn_one"
+		app:layout_constraintTop_toBottomOf="@id/btn_one" />
+
+	<androidx.constraintlayout.widget.Barrier
+		android:id="@+id/barrier"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:barrierDirection="end"
+		app:constraint_referenced_ids="btn_one,btn_two" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="20dp"
+		android:text="barrier右边"
+		app:layout_constraintBottom_toTopOf="@id/tv_center_main"
+		app:layout_constraintStart_toEndOf="@id/barrier" />
+
+
+	<androidx.constraintlayout.widget.Group
+		android:id="@+id/group"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:constraint_referenced_ids="tv_center_main,tv_right_end" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
