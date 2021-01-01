@@ -52,3 +52,5 @@ AIDL的服务端server和客户端client
 
 recyclerView多布局基础封装
 
+cnw_2-7-liveData简单示例
+
