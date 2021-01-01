@@ -30,7 +30,6 @@ class LiveActivity : AppCompatActivity() {
                 .commit()
             Log.d("LiveActivity", "onCreate: 显示fg ${appleFragment.isVisible}")
         }
-
         //隐藏
         btn_destroy_fg_live.setOnClickListener {
             supportFragmentManager.beginTransaction()
@@ -39,7 +38,6 @@ class LiveActivity : AppCompatActivity() {
             Log.w("LiveActivity", "onCreate: 隐藏fg ${appleFragment.isVisible}")
 
         }
-
         //变更livedata的值
         btn_change_live.setOnClickListener {
             liveAppleData.value = "当前liveData的值：${System.currentTimeMillis()}"
