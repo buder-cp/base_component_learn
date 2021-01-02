@@ -55,7 +55,7 @@ fun converStr2Color(str: String): Drawable {
         }
         "blue" -> ColorDrawable(Color.BLUE)
         else -> {
-            ColorDrawable(Color.YELLOW)
+            ColorDrawable(Color.GRAY)
         }
     }
 }

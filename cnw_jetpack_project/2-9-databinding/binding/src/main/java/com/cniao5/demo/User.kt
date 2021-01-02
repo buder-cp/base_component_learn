@@ -14,11 +14,11 @@ class ObUser : BaseObservable() {
     var name = ""
         set(value) {
             notifyPropertyChanged(BR.name)
-            field = value + "<fu>"
+            field = "设置新值：" + value
         }
         @Bindable
         get() {
-            return "$field 菲尔Name"
+            return "$field 原始Name"
         }
 
     var desc = "这是field的User,菲尔"
@@ -49,6 +49,6 @@ class FoUser {
 
 class User {
     var age = 70
-    var name = "七十老牛"
+    var name = "普通user不会改name"
     var desc = "哈哈哈哈，七十的老牛"
 }

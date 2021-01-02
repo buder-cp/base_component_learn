@@ -22,12 +22,12 @@
             type="com.cniao5.demo.ObUser" />
 
         <variable
-            name="fUser"
-            type="com.cniao5.demo.FoUser" />
-
-        <variable
             name="user"
             type="com.cniao5.demo.User" />
+
+        <variable
+            name="fUser"
+            type="com.cniao5.demo.FoUser" />
 
         <variable
             name="click"
@@ -58,63 +58,73 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="演示DataBinding" />
+            android:text="DataBinding示例"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25sp" />
+
+        <!-- name 赋值为 null -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`name为null示例：`+ name}"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{name}" />
+            android:text="@{`name??示例：` + name??`Null of Name`}"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{name??`Null of Name`}" />
+            android:text="@{`name三目示例：` + (name==null?`null`:`nonull`)}"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{address,default=`beijing`}" />
+            android:text="@{`name占位符示例：` + @string/str_name_pre(name)}"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{name==null?`null`:`nonull`}" />
+            android:text="@{`default示例：` + address,default=`beijing`}"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#778899" />
+
+        <!-- ***********************************************************-->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{@string/str_name_pre(name)}" />
+            android:text="@{`非Observable不改变name：` + user.name}"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{obName}" />
-
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="@={obName}" />
+            android:text="@{`非Observable不改变age：` + oUser.age+``}"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.name}" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{oUser.name+oUser.age}" />
+            android:text="@{`Observable类型改变name：` + fUser.name}"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{oUser.age+``}" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{fUser.name}" />
+            android:text="@{`Observable类型改变name：` + oUser.name+oUser.age}"
+            android:textSize="18sp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -122,6 +132,15 @@
             android:background="@{`green`}"
             android:onClick="@{click}"
             android:text="改变" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#778899" />
+
+        <!-- ***********************************************************-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="wrap_content"
