@@ -56,3 +56,6 @@ cnw_2-7-liveData简单示例 -- cnw_jetpack_project/2-7-liveData/
 
 cnw_2-8-viewModel简单示例 -- cnw_jetpack_project/2-8-viewModel/
 
+cnw_2-<9--11>-dataBinding简单示例 -- cnw_jetpack_project/2-9-databinding/
+
+cnw_2-12-LifeCycle简单示例 --  cnw_jetpack_project/2-12-LifeCycle
