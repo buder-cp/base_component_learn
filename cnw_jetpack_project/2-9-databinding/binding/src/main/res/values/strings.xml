@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BindingDemo</string>
+    <string name="str_name_pre">姓名: %s</string>
+</resources>

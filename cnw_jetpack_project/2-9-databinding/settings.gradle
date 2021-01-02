@@ -1,0 +1,2 @@
+include ':binding'
+rootProject.name = "demo"
