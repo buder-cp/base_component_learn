@@ -1,12 +1,12 @@
 package com.example.ktlearntest.coroutines
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
 
 fun main() {
+//    CoroutineScope(Dispatchers.Main).launch {
+//
+//    }
     GlobalScope.launch() {
         val time = measureTimeMillis {
             /**
@@ -53,11 +53,15 @@ fun main() {
 }
 
 private suspend fun jobOne(): Int {
+    println("job The answer is ${Thread.currentThread().name}")
     delay(2500)
+    println("job The answer is ${Thread.currentThread().name}")
     return 1
 }
 
 private suspend fun jobTwo(): Int {
+    println("job The answer is ${Thread.currentThread().name}")
     delay(1500)
+    println("job The answer is ${Thread.currentThread().name}")
     return 2
 }

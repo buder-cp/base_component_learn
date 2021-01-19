@@ -23,6 +23,13 @@ fun joinToString(
         .toString()
 }
 
+fun main() {
+    joinToString("aaa", param3 = "ccc", param2 = "ddd")
+    joinToString("aaa", "bbb", "ccc", "ddd")
+    joinToString("aaa", "ccc", "ddd")
+    joinToString(param2 = "aaa")
+}
+
 /**
  * 伴生对象：必须声明在某个类中。
  * 每个类可以对应一个半生对象，伴生对象的成员全局独一份，伴生对象类似java中的静态成员。

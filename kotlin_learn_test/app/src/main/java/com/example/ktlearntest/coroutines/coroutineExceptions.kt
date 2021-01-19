@@ -3,7 +3,8 @@ package com.example.ktlearntest.coroutines
 import kotlinx.coroutines.*
 
 /**
- * 如果在 concurrentSum 函数内部发生了错误，并且它抛出了一个异常， 所有在作用域中启动的协程都会被取消。
+ * 如果在 concurrentSum 函数内部发生了错误，并且它抛出了一个异常，
+ * 所有在作用域中启动的协程都会被取消。
  */
 fun main() = runBlocking<Unit> {
     try {

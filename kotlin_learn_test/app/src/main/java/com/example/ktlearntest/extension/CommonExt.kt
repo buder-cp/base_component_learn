@@ -1,3 +1,4 @@
+//@file:JvmName("Utils")
 package com.example.ktlearntest.extension
 
 /**
@@ -8,7 +9,28 @@ fun String.getSpecial(content: String): String {
     return content + "hello world"
 }
 
+/**
+ * 除了扩展函数，还可以扩展属性：
+ * 例如我想实现String和StringBuilder通过属性去直接获得最后字符
+ */
+val String.lastChar: Char
+    get() = get(length - 1)
+
+var StringBuilder.lastChar: Char
+    get() = get(length - 1)
+    set(value: Char) {
+        setCharAt(length - 1, value)
+    }
+
+
 fun main() {
-    val result = "getSpecial".getSpecial("bye-bye")
+    val result = "aaa".getSpecial("bye-bye")
     println(result)
+
+    val s = "abc"
+    println(s.lastChar)
+
+    val sb = StringBuilder("123")
+    println(sb.lastChar)
+
 }

@@ -19,4 +19,18 @@ public class javaClass {
         int b = MyUtils.getInstance();
     }
 
+    /**
+     * Java文件中调用data class属性
+     * 需要使用 @JvmField
+     */
+    private void getDataClass() {
+        Person person = new Person("tom", 22, "1254365");
+        person.name = "Jerry";
+        person.age = 23;
+        person.address = "海淀";
+        person.setJerryPhone();
+        person.getTomPhone("0653-789");
+//        Person.Companion.getSex();
+    }
+
 }
