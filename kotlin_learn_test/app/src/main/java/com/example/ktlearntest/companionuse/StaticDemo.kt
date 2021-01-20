@@ -26,4 +26,8 @@ class StaticDemoActivity {
         }
 
     }
+
+    fun app() {
+        StaticDemoActivity.TYPE_1
+    }
 }
