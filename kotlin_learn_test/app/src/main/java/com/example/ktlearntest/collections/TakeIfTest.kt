@@ -20,7 +20,7 @@ fun main() {
         }?.takeIf {
             it.contains(13)
         }
-        ?.let {
+        .let {//注意：不加?，无论true/false这里都会执行，
             println("takeIf, $it")
         }
 

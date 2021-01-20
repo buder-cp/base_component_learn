@@ -12,7 +12,7 @@ copy() 函数
  * data关键词来声明一个数据类，除了会自动实现get set，还会自动生成equals hashcode toString
  */
 
-data class DataClassTest(val name: String, val email: String)
+data class DataClassTest(val name: String = "11", val email: String = "22")
 
 /**
  * Kotlin会为类的参数自动实现get set方法

@@ -8,6 +8,24 @@ fun main() {
 //
 //    }
     GlobalScope.launch() {
+        launch(Dispatchers.IO) {
+            launch(Dispatchers.Main) {
+                launch(Dispatchers.IO) {
+
+                }
+            }
+        }
+        withContext(Dispatchers.Main) {
+
+        }
+        withContext(Dispatchers.IO) {
+
+        }
+        withContext(Dispatchers.Main) {
+
+        }
+    }
+    GlobalScope.launch() {
         val time = measureTimeMillis {
             /**
              * 串行写法一：
