@@ -2,7 +2,7 @@ package com.example.ktlearntest.collections
 
 fun main() {
     val mList = mutableListOf(1, 2, 3, 4, 5, 6)
-    println(mList)
+//    println(mList)
 
     /**
      * https://zhuanlan.zhihu.com/p/32710058
@@ -16,22 +16,22 @@ fun main() {
      */
     mList
         .takeIf {
-            it.size > 3
+            it.size > 13
         }?.takeIf {
             it.contains(13)
         }
         ?.let {
-            println(it)
+            println("takeIf, $it")
         }
 
     mList.filterNot {
         it == 2
     }.let {
-        println(it)//[1, 3, 4, 5, 6]
+        println("filterNot, $it")//[1, 3, 4, 5, 6]
     }
 
     mList.filter { it == 3 }.let {
-        println(it)//[3]
+        println("filter, $it")//[3]
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.example.ktlearntest.kotlininitOrder
+package com.example.ktlearntest.initOrder
 
 //https://www.kotlincn.net/docs/reference/classes.html
 /**
@@ -30,11 +30,11 @@ class InitOrderDemo(name: String) {
 }
 
 fun main() {
-//    val initOrder = InitOrderDemo("hello")
-//    println(initOrder.toString())
+    val initOrder = InitOrderDemo("hello")
+    println(initOrder.toString())
 
-    val derived = Derived("hello", "yes")
-    println(derived.toString())
+//    val derived = Derived("hello", "yes")
+//    println(derived.toString())
 }
 
 open class Base(val name: String) {
