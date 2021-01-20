@@ -7,38 +7,39 @@ fun main() {
 //    CoroutineScope(Dispatchers.Main).launch {
 //
 //    }
-    GlobalScope.launch() {
-        launch(Dispatchers.IO) {
-            launch(Dispatchers.Main) {
-                launch(Dispatchers.IO) {
+//    GlobalScope.launch(Dispatchers.Main) {
+//        launch(Dispatchers.IO) {
+//            launch(Dispatchers.Main) {
+//                launch(Dispatchers.IO) {
+//
+//                }
+//            }
+//        }
+//        withContext(Dispatchers.Main) {
+//
+//        }
+//        withContext(Dispatchers.IO) {
+//
+//        }
+//        withContext(Dispatchers.Main) {
+//
+//        }
+//    }
 
-                }
-            }
-        }
-        withContext(Dispatchers.Main) {
-
-        }
-        withContext(Dispatchers.IO) {
-
-        }
-        withContext(Dispatchers.Main) {
-
-        }
-    }
     GlobalScope.launch() {
         val time = measureTimeMillis {
             /**
              * 串行写法一：
              */
-//            val jobOne = withContext(Dispatchers.IO) {
-//                jobOne()
-//            }
-//            println("job one：${jobOne}")
-//
-//            val jobTwo = withContext(Dispatchers.IO) {
-//                jobTwo()
-//            }
-//            println("job two：${jobTwo}")
+            val jobOne = withContext(Dispatchers.IO) {
+                jobOne()
+            }
+            println("job one：${jobOne}")
+
+            val jobTwo = withContext(Dispatchers.IO) {
+                jobTwo()
+            }
+            println("job two：${jobTwo}")
 
             /**
              * 串行写法二：
@@ -60,9 +61,9 @@ fun main() {
             /**
              * 并行
              */
-            val one = async { jobOne() }
-            val two = async { jobTwo() }
-            println("job The answer is ${one.await() + two.await()}")
+//            val one = async { jobOne() }
+//            val two = async { jobTwo() }
+//            println("job The answer is ${one.await() + two.await()}")
         }
         println("job 执行耗时：${time}")
     }
