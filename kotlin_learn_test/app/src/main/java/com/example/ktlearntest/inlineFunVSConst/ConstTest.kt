@@ -14,3 +14,5 @@ package com.example.ktlearntest.inlineFunVSConst
  */
 
 const val NAME = "hehe"
+
+val AGE = 23

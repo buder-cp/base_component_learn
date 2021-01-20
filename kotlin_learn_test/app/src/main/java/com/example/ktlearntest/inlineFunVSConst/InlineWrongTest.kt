@@ -3,6 +3,7 @@ package com.example.ktlearntest.inlineFunVSConst
 /**
  *
  * 内联函数的错误使用:
+ * https://www.jianshu.com/p/ab877fe72b40
  * https://www.jianshu.com/p/989f9f393b2b?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
  *
  * 每调用一个方法，都会对应一个栈帧的入栈出栈过程，如果你有一个工具类方法，
