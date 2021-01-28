@@ -10,9 +10,9 @@ fun main() {
             /**
              * 串行写法一：
              */
-//            val jobOne = withContext(Dispatchers.IO) {
-//                jobOne()
-//            }
+            val jobOne = withContext(Dispatchers.IO) {
+                jobOne()
+            }
 //            println("job one：${jobOne}")
 //
 //            val jobTwo = withContext(Dispatchers.IO) {
