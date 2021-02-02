@@ -2,6 +2,7 @@ package com.test.ppjoke.utils;
 
 import android.content.ComponentName;
 
+import com.test.libcommon.global.AppGlobals;
 import com.test.ppjoke.FixFragmentNavigator;
 import com.test.ppjoke.model.Destination;
 

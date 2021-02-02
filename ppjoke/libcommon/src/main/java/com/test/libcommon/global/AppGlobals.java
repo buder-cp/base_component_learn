@@ -1,4 +1,4 @@
-package com.test.ppjoke.utils;
+package com.test.libcommon.global;
 
 import android.app.Application;
 

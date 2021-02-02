@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
 }
 
 android {
@@ -7,13 +7,19 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.test.ppjoke"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        javaCompileOptions{
+            annotationProcessorOptions{
+                arguments=["room.schemaLocation":"$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -30,24 +36,20 @@ android {
 
 dependencies {
 
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(':libnavannotation')
-    //如果你使用kotlin,这里需要使用 kapt project
-    annotationProcessor project(":libnavcompiler")
-    implementation project(':libnetwork')
-    implementation project(':libcommon')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.squareup.okhttp3:okhttp:4.2.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'
+    implementation project(":libcommon")
+
+    api 'android.arch.persistence.room:runtime:1.1.1'
+    api "android.arch.lifecycle:extensions:1.1.1"
+    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    api 'com.alibaba:fastjson:1.2.59'
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.navigation:navigation-fragment:2.2.2'
-    implementation 'androidx.navigation:navigation-ui:2.2.2'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-
-    implementation 'com.alibaba:fastjson:1.2.59'
 }

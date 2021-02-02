@@ -13,8 +13,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/libcommon" />
             <option value="$PROJECT_DIR$/libnavannotation" />
             <option value="$PROJECT_DIR$/libnavcompiler" />
+            <option value="$PROJECT_DIR$/libnetwork" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
