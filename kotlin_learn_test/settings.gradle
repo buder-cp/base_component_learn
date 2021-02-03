@@ -1,2 +1,3 @@
+include ':libjava'
 include ':app'
 rootProject.name = "KtLearnTest"

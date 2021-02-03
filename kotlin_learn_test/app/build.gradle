@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.ktlearntest"
-        minSdkVersion 18
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
