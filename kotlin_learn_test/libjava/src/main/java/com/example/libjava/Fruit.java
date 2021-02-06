@@ -39,6 +39,10 @@ class Banana extends Fruit {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public String getBananaMethodMethod() {
+        return "bananaMethod";
+    }
 }
 
 class Apple extends Fruit {
@@ -57,6 +61,10 @@ class Apple extends Fruit {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getAppleMethod() {
+        return "appleMethod";
     }
 }
 
@@ -77,11 +85,15 @@ class Test {
          */
         List<? extends Fruit> list = new ArrayList<>();
 //        list.add(new Apple());//Error
-        Fruit fruit = list.get(0);//不报错
+//        Fruit fruit = list.get(0);//不报错
 
         System.out.println("tag_apple " + ((Apple) getApple()).getAge());
+        System.out.println("tag_apple " + ((Apple) getApple()).getAppleMethod());
         System.out.println("tag_banana " + ((Banana) getBanana()).getAge());
+        System.out.println("tag_banana " + ((Banana) getBanana()).getBananaMethodMethod());
 
+
+        //<? extends Fruit>
         List<Apple> listApple = new ArrayList<>();
         listApple.add(new Apple(1));
         List<Banana> listBanana = new ArrayList<>();
@@ -100,12 +112,14 @@ class Test {
 //        Fruit object = list2.get(0);//Error
 
     }
-
+//***************************************<T extends E> 方法上，约束返回值类型****************************************
     /**
-     * < T extends E> 和 <? extends E> 有什么区别
+     * <T extends E> 和 <? extends E> 有什么区别
      * 它们用的地方不一样：
      * < T extends E>只能用于形参（也就是泛型定义的时候）
      * <? extends E>只能用于实参（也就是传入具体泛型类型的时候）
+     *
+     * 用于方法的返回值类型时，约束了返回值类型
      */
     private static <T extends Fruit> T getApple() {
         Apple apple = new Apple();
@@ -117,10 +131,10 @@ class Test {
         Banana banana = new Banana(34);
         return (V) banana;
     }
-
+//*******************************************<? extends Fruit> 方法上，入参类型************************************
     /**
      * https://juejin.cn/post/6844903901552967688
-     * < T extends E> 和 <? extends E> 有什么区别
+     * <T extends E> 和 <? extends E> 有什么区别
      * 它们用的地方不一样：
      * < T extends E>只能用于形参（也就是泛型定义的时候）
      * <? extends E>只能用于实参（也就是传入具体泛型类型的时候）

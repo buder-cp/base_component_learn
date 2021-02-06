@@ -26,6 +26,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    dataBinding{
+        enabled=true
+    }
 }
 
 dependencies {
@@ -48,6 +52,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    //QQ快捷登录
+    implementation files('libs/open_sdk_r6140_lite.jar')
+
+    //错误收集
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
 
     implementation 'com.alibaba:fastjson:1.2.59'
 }
