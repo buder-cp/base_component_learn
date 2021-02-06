@@ -1,0 +1,3 @@
+include ':javaBasic'
+include ':app'
+rootProject.name = "BasicLearn"
