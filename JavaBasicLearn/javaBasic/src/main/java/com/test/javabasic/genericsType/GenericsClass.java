@@ -1,12 +1,5 @@
 package com.test.javabasic.genericsType;
 
-import com.sun.org.apache.xerces.internal.xs.StringList;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import sun.net.www.content.text.Generic;
-
 //泛型类定义
 //在泛型类、泛型接口的方法中，把泛型中声明的类型形参当成普通类型使用
 public class GenericsClass<K, V> {
