@@ -3,7 +3,6 @@ package com.test.patterns.structure.proxy;
 import com.test.patterns.service.OrderService;
 import com.test.patterns.service.impl.OutOrderServiceImpl;
 
-import java.io.ObjectStreamException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -20,9 +19,9 @@ public class ProxyClient {
 
     private static void saveOrder() throws Exception {
         //本地代理类
-//        OrderService orderService = new ProxyOrder();
-//
-//        orderService.saveOrder();
+        //静态代理：
+        OrderService orderService = new ProxyOrder();
+        orderService.saveOrder();
 
 //        OrderService proxy = (OrderService) loadProxy(new OutOrderServiceImpl());
         OrderService proxy = (OrderService) loadProxy2(new OutOrderServiceImpl());
