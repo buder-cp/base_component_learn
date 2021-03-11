@@ -18,9 +18,6 @@ public class ViewGroupB extends LinearLayout{
         super(context, attrs, defStyle);
     }
 
-
-
-
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
 

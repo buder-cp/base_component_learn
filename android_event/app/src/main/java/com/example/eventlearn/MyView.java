@@ -18,7 +18,6 @@ public class MyView extends View{
         super(context, attrs, defStyleAttr);
     }
 
-
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         Log.d("付勇焜---->","MyView dispatchTouchEvent ");
