@@ -1,4 +1,4 @@
-package com.example.lib.jikexueyuan.链表上;
+package com.example.lib.jikexueyuan.linkedlist_shang;
 
 /**
  * 链表节点

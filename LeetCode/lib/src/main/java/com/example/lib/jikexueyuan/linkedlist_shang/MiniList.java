@@ -1,4 +1,4 @@
-package com.example.lib.jikexueyuan.链表上;
+package com.example.lib.jikexueyuan.linkedlist_shang;
 
 import java.util.Comparator;
 import java.util.Stack;
