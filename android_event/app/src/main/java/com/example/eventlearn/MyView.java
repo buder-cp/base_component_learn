@@ -20,14 +20,14 @@ public class MyView extends View{
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        Log.d("付勇焜---->","MyView dispatchTouchEvent ");
+        Log.d("buder---->","MyView dispatchTouchEvent ");
         return super.dispatchTouchEvent(event);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        Log.d("付勇焜---->","MyView onTouchEvent ");
+        Log.d("buder---->","MyView onTouchEvent ");
         return super.onTouchEvent(event);
     }
 }

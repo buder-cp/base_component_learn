@@ -21,20 +21,20 @@ public class ViewGroupA extends LinearLayout{
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
 
-        Log.d("付勇焜----->","ViewGroupA dispatchTouchEvent");
+        Log.d("buder----->","ViewGroupA dispatchTouchEvent");
         return super.dispatchTouchEvent(ev);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
 
-        Log.d("付勇焜----->","ViewGroupA onInterceptTouchEvent");
+        Log.d("buder----->","ViewGroupA onInterceptTouchEvent");
         return super.onInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.d("付勇焜----->","ViewGroupA onTouchEvent");
+        Log.d("buder----->","ViewGroupA onTouchEvent");
         return super.onTouchEvent(event);
     }
 }
