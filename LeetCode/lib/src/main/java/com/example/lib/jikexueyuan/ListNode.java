@@ -58,7 +58,7 @@ public class ListNode {
     /**
      * 链表反转
      */
-    public ListNode reverseList(ListNode head) {
+    public static ListNode reverseList(ListNode head) {
         ListNode pre=head;
         ListNode p=pre.next;
         ListNode next;
@@ -69,6 +69,19 @@ public class ListNode {
             p=next;
         }
         head.next=null;
+        return pre;
+    }
+
+    /**
+     * 链表中间节点
+     */
+    private static ListNode getMiddleNode(ListNode head) {
+        ListNode pre = head;
+        ListNode p = head;
+        while (p.next != null && p.next.next != null) {
+            pre = pre.next;
+            p = p.next.next;
+        }
         return pre;
     }
 

@@ -1,5 +1,7 @@
 package com.test.opensourceframework.retrofit;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -18,7 +20,12 @@ public class GetRequest {
         GetRequest_Interface request = retrofit.create(GetRequest_Interface.class);
 
         Call<Translation> call = request.getCall();
-
+        call.request();
+        try {
+            call.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         call.enqueue(new Callback<Translation>() {
             @Override
             public void onResponse(Call<Translation> call, Response<Translation> response) {
