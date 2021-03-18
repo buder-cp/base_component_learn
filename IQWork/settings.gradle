@@ -1,3 +1,4 @@
+include ':contentprovider'
 include ':appuseage2'
 include ':appusagestate'
 include ':app'

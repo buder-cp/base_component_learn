@@ -77,10 +77,10 @@ public class ChangHongAppJump {
 //                context.startActivity(intent3);
 
                 //全部应用 不行
-                Intent intent = context.getPackageManager()
-                        .getLaunchIntentForPackage("com.changhong.cuk.CHAppManager");
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+//                Intent intent = context.getPackageManager()
+//                        .getLaunchIntentForPackage("com.changhong.cuk.CHAppManager");
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(intent);
 //
 //                Intent intent1 = new Intent();
 //                intent1.setComponent(new ComponentName("com.changhong.cuk.CHAppManager",

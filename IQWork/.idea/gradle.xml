@@ -14,9 +14,11 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/appusagestate" />
             <option value="$PROJECT_DIR$/appuseage2" />
+            <option value="$PROJECT_DIR$/contentprovider" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>

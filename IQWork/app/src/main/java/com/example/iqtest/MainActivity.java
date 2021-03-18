@@ -1,9 +1,12 @@
 package com.example.iqtest;
 
 import android.content.BroadcastReceiver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button heapTestBtn;
     Button signalBtn;
+    Button contentProviderBtn;
 
     private MyInstalledReceiver installedReceiver;
 
@@ -32,8 +36,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         heapTestBtn = findViewById(R.id.native_heap_test);
         signalBtn = findViewById(R.id.signal_info);
+        contentProviderBtn = findViewById(R.id.contentProvider);
         heapTestBtn.setOnClickListener(this);
         signalBtn.setOnClickListener(this);
+        contentProviderBtn.setOnClickListener(this);
 
         installedReceiver = new MyInstalledReceiver();
         IntentFilter filter = new IntentFilter();
@@ -52,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /**
          * 长虹一期应用跳转调试
          */
-        ChangHongAppJump.testChangHongApp(this, findViewById(R.id.jump_btn));
+//        ChangHongAppJump.testChangHongApp(this, findViewById(R.id.jump_btn));
 
         /**
          * 长虹一期应用APP请求接口
@@ -70,6 +76,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          */
 //        DataRequestGET.doRequest();
 //        DataRequestPOST.doRequest();//OK Test
+
+        /**
+         * 测试contentProvider
+         * 在按钮： R.id.contentProvider
+         */
+//        useProvider();
     }
 
     @Override
@@ -90,6 +102,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            SignalTest.getSignalIsOk(this);
 //            SignalTest.switchSignal(this);
             SignalTest.getSignalNew(this);
+        } else if (view.getId() == R.id.contentProvider) {
+            useProvider();
+        }
+    }
+
+    /**
+     * 测试contentProvider
+     * 在按钮： R.id.contentProvider，
+     * 需要先安装 contentProvider应用，创建数据库后测试
+     */
+    private void useProvider() {
+        Uri boyUri = Uri.parse("content://com.example.contentprovider.MyFirstContentProvider/boy");
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", "张三");
+        getContentResolver().insert(boyUri, contentValues);
+        //getContentResolver().delete(boyUri, )
+        Cursor boyCursor = getContentResolver().query(boyUri, new String[]{"_id", "name"}, null, null, null);
+        if (boyCursor != null) {
+            while (boyCursor.moveToNext()) {
+                Log.e("buder", "ID:" + boyCursor.getInt(boyCursor.getColumnIndex("_id")) + "  name:" + boyCursor.getString(boyCursor.getColumnIndex("name")));
+            }
+            boyCursor.close();
+        }
+
+        Uri girlUri = Uri.parse("content://com.example.contentprovider.MyFirstContentProvider/girl");
+        contentValues.clear();
+        //contentValues.put("name", "李四");
+        //getContentResolver().insert(girlUri, contentValues);
+        Cursor girlCursor = getContentResolver().query(girlUri, new String[]{"_id", "name"}, null, null, null);
+        if (girlCursor != null) {
+            while (girlCursor.moveToNext()) {
+                Log.e("buder", "ID:" + girlCursor.getInt(girlCursor.getColumnIndex("_id"))
+                        + "  name:" + girlCursor.getString(girlCursor.getColumnIndex("name")));
+            }
+            girlCursor.close();
         }
     }
 

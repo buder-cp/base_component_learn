@@ -11,6 +11,7 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
@@ -21,18 +22,22 @@ public class RxJavaUse extends RxAppCompatActivity {
     public void selfFun() {
         final String TAG = "MainActivity";
         Observable.create(new ObservableOnSubscribe<Integer>() {
-
             @Override
             public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
                 Log.d(TAG, "subscribe 事件发射");
                 emitter.onNext(1);
                 emitter.onComplete();
+                emitter.onError(new Throwable("test"));
             }
         }).map(new Function<Integer, String>() {
-
             @Override
             public String apply(Integer integer) {
                 return integer + "alan";
+            }
+        }).doOnNext(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                saveIt();//保存一下
             }
         }).observeOn(AndroidSchedulers.mainThread())//观察者的执行线程
                 .subscribeOn(Schedulers.io())//被观察者的执行线程
@@ -62,6 +67,10 @@ public class RxJavaUse extends RxAppCompatActivity {
                         Log.d(TAG, "onComplete");
                     }
                 });
+    }
+
+    private void saveIt() {
+
     }
 
 }
