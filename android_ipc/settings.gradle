@@ -1,0 +1,4 @@
+include ':aidl_client'
+include ':aidl_server'
+include ':app'
+rootProject.name = "IpcTest"
