@@ -17,25 +17,25 @@ public class AIDLService extends Service {
     private IOperationManager.Stub stub = new IOperationManager.Stub() {
         @Override
         public Parameter operation(Parameter parameter1, Parameter parameter2) throws RemoteException {
-//            try {
-//                Log.e(TAG, "operation 被调用，延时5秒，模拟耗时计算");
-//                Thread.sleep(5000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                Log.e(TAG, "operation 被调用，延时5秒，模拟耗时计算");
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             int param1 = parameter1.getParam();
             int param2 = parameter2.getParam();
             Parameter result = new Parameter(param1 * param2);
             //在操作 RemoteCallbackList 前，必须先调用其 beginBroadcast 方法
             //此外，beginBroadcast 必须和 finishBroadcast配套使用
-//            int count = callbackList.beginBroadcast();
-//            for (int i = 0; i < count; i++) {
-//                IOnOperationCompletedListener listener = callbackList.getBroadcastItem(i);
-//                if (listener != null) {
-//                    listener.onOperationCompleted(result);
-//                }
-//            }
-//            callbackList.finishBroadcast();
+            int count = callbackList.beginBroadcast();
+            for (int i = 0; i < count; i++) {
+                IOnOperationCompletedListener listener = callbackList.getBroadcastItem(i);
+                if (listener != null) {
+                    listener.onOperationCompleted(result);
+                }
+            }
+            callbackList.finishBroadcast();
             Log.e(TAG, "计算结束");
             return result;
         }
