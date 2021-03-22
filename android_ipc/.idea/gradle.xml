@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/aidl_server" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/handlerthread" />
+            <option value="$PROJECT_DIR$/intentservice" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
