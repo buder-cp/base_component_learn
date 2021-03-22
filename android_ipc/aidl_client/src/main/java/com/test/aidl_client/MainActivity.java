@@ -1,126 +1,146 @@
 package com.test.aidl_client;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.EditText;
 
 
-import com.test.aidl_server.IRomteAidlInterface;
+import com.test.aidl_server.IOperationManager;
+import com.test.aidl_server.Parameter;
 
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private static final String TAG = "MainActivity";
-    private static final String BIND_SERVICE_ACTION = "android.intent.action.RESPOND_AIDL_MESSAGE";
 
-    private IRomteAidlInterface iRomteAidlInterface;
+    private EditText et_param1;
 
-    private Button mConnectButton;
-    private Button mAcquireButton;
+    private EditText et_param2;
 
-    private String mUsername;
-    private String mUserage;
+    private EditText et_result;
+
+    private IOperationManager iOperationManager;
+
+//    private IOnOperationCompletedListener completedListener = new IOnOperationCompletedListener.Stub() {
+//        @Override
+//        public void onOperationCompleted(final Parameter result) throws RemoteException {
+//            runOnUiThread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    et_result.setText("运算结果： " + result.getParam());
+//                }
+//            });
+//        }
+//    };
+
+    private ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            iOperationManager = IOperationManager.Stub.asInterface(service);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            iOperationManager = null;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        bindService();
+    }
+
+    private void bindService() {
+        Intent intent = new Intent();
+        intent.setClassName("com.test.aidl_server", "com.test.aidl_server.AIDLService");
+        bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
     }
 
     private void initView() {
-        mConnectButton = findViewById(R.id.connect);
-        mAcquireButton = findViewById(R.id.acquire_info);
-
-        mConnectButton.setOnClickListener(new View.OnClickListener() {
+        et_param1 = findViewById(R.id.et_param1);
+        et_param2 = findViewById(R.id.et_param2);
+        et_result = findViewById(R.id.et_result);
+        Button btn_registerListener = findViewById(R.id.btn_registerListener);
+        Button btn_unregisterListener = findViewById(R.id.btn_unregisterListener);
+        Button btn_operation = findViewById(R.id.btn_operation);
+        View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                bindService();
-            }
-        });
-
-        mAcquireButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (null != iRomteAidlInterface) {
-                    try {
-                        mUsername = iRomteAidlInterface.getPersonUserName();
-                        mUserage = iRomteAidlInterface.getPersonUserAge();
-                        Toast.makeText(getApplicationContext(), "mUsername = " + mUsername + ",mUserage = " + mUserage, Toast.LENGTH_SHORT).show();
-                    } catch (RemoteException e) {
-                        e.printStackTrace();
+            public void onClick(View v) {
+                switch (v.getId()) {
+//                    case R.id.btn_registerListener: {
+//                        if (iOperationManager != null) {
+//                            try {
+//                                iOperationManager.registerListener(completedListener);
+//                            } catch (RemoteException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                        break;
+//                    }
+//                    case R.id.btn_unregisterListener: {
+//                        if (iOperationManager != null) {
+//                            try {
+//                                iOperationManager.unregisterListener(completedListener);
+//                            } catch (RemoteException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                        break;
+//                    }
+                    case R.id.btn_operation: {
+                        if (TextUtils.isEmpty(et_param1.getText()) || TextUtils.isEmpty(et_param2.getText())) {
+                            return;
+                        }
+                        final int param1 = Integer.valueOf(et_param1.getText().toString());
+                        final int param2 = Integer.valueOf(et_param2.getText().toString());
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Parameter parameter1 = new Parameter(param1);
+                                Parameter parameter2 = new Parameter(param2);
+                                if (iOperationManager != null) {
+                                    try {
+                                        final Parameter result = iOperationManager.operation(parameter1, parameter2);
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                et_result.setText("运算结果： " + result.getParam());
+                                            }
+                                        });
+                                    } catch (RemoteException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                        }).start();
+                        break;
                     }
                 }
             }
-        });
-    }
-
-    ServiceConnection serviceConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            iRomteAidlInterface = IRomteAidlInterface.Stub.asInterface(service);
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            iRomteAidlInterface = null;
-        }
-    };
-
-    private void bindService() {
-//        Intent intent = new Intent();
-//        intent.setAction(BIND_SERVICE_ACTION);
-//        intent.setPackage("com.test.aidl_server");
-//        final Intent newIntent = new Intent(achieveExplicitFromImplicitIntent(this, intent));
-//        bindService(newIntent, serviceConnection, Context.BIND_AUTO_CREATE);
-
-        Intent intent = new Intent();
-        intent.setClassName("com.test.aidl_server", "com.test.aidl_server.RmoteService");
-        bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
-
-    }
-
-    private Intent achieveExplicitFromImplicitIntent(Context context, Intent implicitIntent) {
-        // Retrieve all services that can match the given intent
-        PackageManager pm = context.getPackageManager();
-        List<ResolveInfo> resolveInfo = pm.queryIntentServices(implicitIntent, 0);
-
-        // Make sure only one match was found
-        if (resolveInfo == null || resolveInfo.size() != 1) {
-            return null;
-        }
-
-        // Get component info and create ComponentName
-        ResolveInfo serviceInfo = resolveInfo.get(0);
-        String packageName = serviceInfo.serviceInfo.packageName;
-        String className = serviceInfo.serviceInfo.name;
-        ComponentName component = new ComponentName(packageName, className);
-
-        Intent explicitIntent = new Intent(implicitIntent);
-
-        explicitIntent.setComponent(component);
-        return explicitIntent;
-    }
-
-    private void unBindService() {
-        unbindService(serviceConnection);
+        };
+        btn_registerListener.setOnClickListener(clickListener);
+        btn_unregisterListener.setOnClickListener(clickListener);
+        btn_operation.setOnClickListener(clickListener);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unBindService();
+        if (serviceConnection != null) {
+            unbindService(serviceConnection);
+        }
     }
+
 }

@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 28
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.test.aidl_server"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion 15
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
