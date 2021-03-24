@@ -1,3 +1,4 @@
+include ':service'
 include ':intentservice'
 include ':handlerthread'
 include ':aidl_client'
