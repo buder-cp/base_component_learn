@@ -43,4 +43,12 @@
         android:layout_marginTop="20dp"
         android:text="contentProvider" />
 
+    <Button
+        android:id="@+id/broadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contentProvider"
+        android:layout_marginTop="20dp"
+        android:text="broadcast" />
+
 </RelativeLayout>

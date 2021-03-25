@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button heapTestBtn;
     Button signalBtn;
     Button contentProviderBtn;
+    Button broadcastBtn;
 
     private MyInstalledReceiver installedReceiver;
 
@@ -37,9 +38,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         heapTestBtn = findViewById(R.id.native_heap_test);
         signalBtn = findViewById(R.id.signal_info);
         contentProviderBtn = findViewById(R.id.contentProvider);
+        broadcastBtn = findViewById(R.id.broadcast);
         heapTestBtn.setOnClickListener(this);
         signalBtn.setOnClickListener(this);
         contentProviderBtn.setOnClickListener(this);
+        broadcastBtn.setOnClickListener(this);
 
         installedReceiver = new MyInstalledReceiver();
         IntentFilter filter = new IntentFilter();
@@ -78,10 +81,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        DataRequestPOST.doRequest();//OK Test
 
         /**
+         * 电视果tv3.5
          * 测试contentProvider
          * 在按钮： R.id.contentProvider
          */
 //        useProvider();
+
+        /**
+         * 电视果tv3.5
+         * 测试提供broadcastReceiver
+         */
+
     }
 
     @Override
@@ -104,6 +114,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             SignalTest.getSignalNew(this);
         } else if (view.getId() == R.id.contentProvider) {
             useProvider();
+        } else if (view.getId() == R.id.broadcast) {
+            Intent intent = new Intent();
+            intent.setAction("com.gala.video.app.epg.opr.setting.SettingExportedReceiver");
+            intent.putExtra("gala.dest.field", "gala.setting.netspeed");
+            sendBroadcast(intent);
         }
     }
 

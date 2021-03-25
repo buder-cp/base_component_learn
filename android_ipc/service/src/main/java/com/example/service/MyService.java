@@ -13,7 +13,7 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-
+//https://www.jianshu.com/p/e04c4239b07e
 /**
  * 多次startService()，会多次执行onStartCommand()
  * <p>
@@ -89,7 +89,8 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         System.out.println("执行了onStartCommand()");
-        return super.onStartCommand(intent, flags, startId);
+//        return super.onStartCommand(intent, flags, START_STICKY);
+        return START_STICKY;
     }
 
     @Override
