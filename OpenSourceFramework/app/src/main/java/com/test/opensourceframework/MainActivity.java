@@ -11,7 +11,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.test.opensourceframework.dagger2.DaggerMainComponent;
+//import com.test.opensourceframework.dagger2.DaggerMainComponent;
 import com.test.opensourceframework.dagger2.Flower;
 import com.test.opensourceframework.dagger2.MainModule;
 import com.test.opensourceframework.retrofit.GetRequest;
@@ -64,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void dagger2Print() {
-        DaggerMainComponent.builder()
-                // 设置 MainModule 对象
-                .mainModule(new MainModule())
-                .build()
-                .inject(this);
-
-        Log.e("flower", flower.toString());
+//        DaggerMainComponent.builder()
+//                // 设置 MainModule 对象
+//                .mainModule(new MainModule())
+//                .build()
+//                .inject(this);
+//
+//        Log.e("flower", flower.toString());
     }
 
 
