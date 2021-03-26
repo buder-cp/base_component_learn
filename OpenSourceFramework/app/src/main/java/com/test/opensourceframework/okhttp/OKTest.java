@@ -11,6 +11,7 @@ import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.ConnectionPool;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
@@ -54,6 +55,11 @@ public class OKTest {
             .addInterceptor(new LoggingInterceptor())
             .addNetworkInterceptor(new CacheInterceptor())//设置cache方式一，不推荐
             .cache(cache)
+            .readTimeout(100, TimeUnit.HOURS)
+            .writeTimeout(10, TimeUnit.HOURS)
+            .connectTimeout(10, TimeUnit.HOURS)
+            .connectionPool(new ConnectionPool(10, 10, TimeUnit.DAYS))
+            .retryOnConnectionFailure(true)
             .cookieJar(new CookieJar() {
                 @Override
                 public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
