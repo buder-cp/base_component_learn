@@ -115,11 +115,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == R.id.contentProvider) {
             useProvider();
         } else if (view.getId() == R.id.broadcast) {
-            Intent intent = new Intent();
-            intent.setAction("com.gala.video.app.epg.opr.setting.SettingExportedReceiver");
-            intent.putExtra("gala.dest.field", "gala.setting.netspeed");
-            sendBroadcast(intent);
+//            Intent intent = new Intent();
+//            intent.setAction("com.gala.video.app.epg.opr.setting.SettingExportedReceiver");
+//            intent.putExtra("gala.dest.field", "gala.setting.netspeed");
+//            sendBroadcast(intent);
+
+//            gotoPlaySetting();
+            gotoAboutSetting();
         }
+    }
+
+    /**
+     * 测试 BroadCastReceiver
+     * 跳转 播放设置页，关于页
+     */
+    private void gotoPlaySetting() {
+        Intent intent = new Intent();
+//        intent.setAction("com.gala.video.app.epg.opr.setting.SettingExportedReceiver");
+        intent.setAction("com.gitv.dvb.app.epg.opr.setting.SettingExportedReceiver");
+        intent.putExtra("gala.dest.field", "gala.setting.player");
+        sendBroadcast(intent);
+    }
+
+    private void gotoAboutSetting() {
+        Intent intent = new Intent();
+//        intent.setAction("com.gala.video.app.epg.opr.setting.SettingExportedReceiver");
+        intent.setAction("com.gitv.dvb.app.epg.opr.setting.SettingExportedReceiver");
+        intent.putExtra("gala.dest.field", "gala.setting.about");
+        sendBroadcast(intent);
     }
 
     /**
