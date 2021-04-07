@@ -35,4 +35,7 @@ dependencies {
 
     implementation 'com.loopj.android:android-async-http:1.4.9'
 
+    testCompile "org.mockito:mockito-core:+"
+    androidTestCompile "org.mockito:mockito-android:+"
+
 }

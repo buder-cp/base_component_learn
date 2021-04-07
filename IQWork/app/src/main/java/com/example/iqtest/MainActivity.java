@@ -1,6 +1,7 @@
 package com.example.iqtest;
 
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -14,14 +15,10 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.iqtest.app.AppInfoUtils;
-import com.example.iqtest.bluetooth.BluetoothActivity;
 import com.example.iqtest.bluetooth.BluetoothNewActivity;
-import com.example.iqtest.erqi.DataRequestPOST;
-import com.example.iqtest.nativeHeap.NativeHeapActivity;
 import com.example.iqtest.signalTest.SignalTest;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button heapTestBtn;
     Button signalBtn;
@@ -97,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(installedReceiver != null) {
+        if (installedReceiver != null) {
             this.unregisterReceiver(installedReceiver);
         }
     }
@@ -121,7 +118,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            sendBroadcast(intent);
 
 //            gotoPlaySetting();
-            gotoAboutSetting();
+//            gotoAboutSetting();
+            Intent intent2 = new Intent();
+            intent2.setComponent(new ComponentName("com.tvguo.app", "com.tvguo.app.SplashActivity"));
+            intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent2);
         }
     }
 
@@ -182,12 +183,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     class MyInstalledReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {		// install
+            if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {        // install
                 String packageName = intent.getDataString();
                 Log.i("homer", "安装了 :" + packageName);
             }
 
-            if (intent.getAction().equals("android.intent.action.PACKAGE_REMOVED")) {	// uninstall
+            if (intent.getAction().equals("android.intent.action.PACKAGE_REMOVED")) {    // uninstall
                 String packageName = intent.getDataString();
                 Log.i("homer", "卸载了 :" + packageName);
             }
