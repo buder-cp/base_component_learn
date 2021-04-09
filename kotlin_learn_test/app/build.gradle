@@ -51,4 +51,19 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha01'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //https://blog.csdn.net/weixin_45365889/article/details/96439072
+    //mockk 用法
+
+// Unit tests
+    testImplementation "io.mockk:mockk:1.9.3"
+
+// Instrumented tests
+    androidTestImplementation('io.mockk:mockk-android:1.9.3') { exclude module: 'objenesis' }
+    androidTestImplementation 'org.objenesis:objenesis:2.6'
+
+// Coroutine tests
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0-M2'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.0-M2'
+
 }
