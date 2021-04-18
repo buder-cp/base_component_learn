@@ -24,7 +24,7 @@ public abstract class AbsViewModel<T> extends ViewModel {
                 .setInitialLoadSizeHint(12)
                 // .setMaxSize(100)；
                 // .setEnablePlaceholders(false)
-                // .setPrefetchDistance()
+                // .setPrefetchDistance()//距离屏幕还有多远时，开始加载下一页数据
                 .build();
 
         pageData = new LivePagedListBuilder(factory, config)
