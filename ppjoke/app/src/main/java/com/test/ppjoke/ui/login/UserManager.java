@@ -43,11 +43,11 @@ public class UserManager {
     }
 
     public LiveData<User> login(Context context) {
-//        Intent intent = new Intent(context, LoginActivity.class);
-//        if (!(context instanceof Activity)) {
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        }
-//        context.startActivity(intent);
+        Intent intent = new Intent(context, LoginActivity.class);
+        if (!(context instanceof Activity)) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
+        context.startActivity(intent);
         return getUserLiveData();
     }
 
