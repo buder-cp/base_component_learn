@@ -67,4 +67,50 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         navController.navigate(menuItem.getItemId());
         return !TextUtils.isEmpty(menuItem.getTitle());
     }
+
+    //bugFix：bottom多次点击后，按返回键，会依次返回上次fragment，而非homeFragment
+    @Override
+    public void onBackPressed() {
+//        boolean shouldIntercept = false;
+//        int homeDestinationId = 0;
+//
+//        Fragment fragment = getSupportFragmentManager().getPrimaryNavigationFragment();
+//        String tag = fragment.getTag();
+//        int currentPageDestId = Integer.parseInt(tag);
+//
+//        HashMap<String, Destination> config = AppConfig.getDestConfig();
+//        Iterator<Map.Entry<String, Destination>> iterator = config.entrySet().iterator();
+//        while (iterator.hasNext()) {
+//            Map.Entry<String, Destination> next = iterator.next();
+//            Destination destination = next.getValue();
+//            if (!destination.asStarter && destination.id == currentPageDestId) {
+//                shouldIntercept = true;
+//            }
+//
+//            if (destination.asStarter) {
+//                homeDestinationId = destination.id;
+//            }
+//        }
+//
+//        if (shouldIntercept && homeDestinationId > 0) {
+//            navView.setSelectedItemId(homeDestinationId);
+//            return;
+//        }
+//        super.onBackPressed();
+
+        //当前正在显示的页面destinationId
+        int currentPageId = navController.getCurrentDestination().getId();
+
+        //APP页面路导航结构图  首页的destinationId
+        int homeDestId = navController.getGraph().getStartDestination();
+
+        //如果当前正在显示的页面不是首页，而我们点击了返回键，则拦截。
+        if (currentPageId != homeDestId) {
+            navView.setSelectedItemId(homeDestId);
+            return;
+        }
+
+        //否则 finish，此处不宜调用onBackPressed。因为navigation会操作回退栈,切换到之前显示的页面。
+        finish();
+    }
 }
