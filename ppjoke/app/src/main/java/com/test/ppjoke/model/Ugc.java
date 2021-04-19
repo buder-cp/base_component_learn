@@ -1,12 +1,12 @@
 package com.test.ppjoke.model;
 
-import com.test.ppjoke.BR;
 
 import java.io.Serializable;
 
 import androidx.annotation.Nullable;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.library.baseAdapters.BR;
 
 public class Ugc extends BaseObservable implements Serializable {
     /**

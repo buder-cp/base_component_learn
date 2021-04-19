@@ -7,16 +7,20 @@ import com.alibaba.fastjson.TypeReference;
 import com.test.libcommon.global.AppGlobals;
 import com.test.ppjoke.model.BottomBar;
 import com.test.ppjoke.model.Destination;
+import com.test.ppjoke.model.SofaTab;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class AppConfig {
     private static HashMap<String, Destination> sDestConfig;
     private static BottomBar sBottomBar;
+    private static SofaTab sSofaTab, sFindTabConfig;
 
     public static HashMap<String, Destination> getDestConfig() {
         if (sDestConfig == null) {
@@ -33,6 +37,34 @@ public class AppConfig {
             sBottomBar = JSON.parseObject(content, BottomBar.class);
         }
         return sBottomBar;
+    }
+
+    public static SofaTab getSofaTabConfig() {
+        if (sSofaTab == null) {
+            String content = parseFile("sofa_tabs_config.json");
+            sSofaTab = JSON.parseObject(content, SofaTab.class);
+            Collections.sort(sSofaTab.tabs, new Comparator<SofaTab.Tabs>() {
+                @Override
+                public int compare(SofaTab.Tabs o1, SofaTab.Tabs o2) {
+                    return o1.index < o2.index ? -1 : 1;
+                }
+            });
+        }
+        return sSofaTab;
+    }
+
+    public static SofaTab getFindTabConfig() {
+        if (sFindTabConfig == null) {
+            String content = parseFile("find_tabs_config.json");
+            sFindTabConfig = JSON.parseObject(content, SofaTab.class);
+            Collections.sort(sFindTabConfig.tabs, new Comparator<SofaTab.Tabs>() {
+                @Override
+                public int compare(SofaTab.Tabs o1, SofaTab.Tabs o2) {
+                    return o1.index < o2.index ? -1 : 1;
+                }
+            });
+        }
+        return sFindTabConfig;
     }
 
     private static String parseFile(String fileName) {
