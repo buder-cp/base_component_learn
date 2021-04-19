@@ -19,6 +19,8 @@ import androidx.paging.PagedListAdapter;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.test.libnavannotation.FragmentDestination;
 import com.test.ppjoke.R;
+import com.test.ppjoke.exoplayer.PageListPlayDetector;
+import com.test.ppjoke.exoplayer.PageListPlayManager;
 import com.test.ppjoke.model.Feed;
 import com.test.ppjoke.ui.AbsListFragment;
 import com.test.ppjoke.ui.MutablePageKeyedDataSource;
@@ -27,7 +29,7 @@ import java.util.List;
 
 @FragmentDestination(pageUrl = "main/tabs/home", asStarter = true)
 public class HomeFragment extends AbsListFragment<Feed, HomeViewModel> {
-//    private PageListPlayDetector playDetector;
+    private PageListPlayDetector playDetector;
     private String feedType;
     private boolean shouldPause = true;
 
@@ -47,7 +49,7 @@ public class HomeFragment extends AbsListFragment<Feed, HomeViewModel> {
                 submitList(feeds);
             }
         });
-//        playDetector = new PageListPlayDetector(this, mRecyclerView);
+        playDetector = new PageListPlayDetector(this, mRecyclerView);
         mViewModel.setFeedType(feedType);
     }
 
@@ -58,13 +60,13 @@ public class HomeFragment extends AbsListFragment<Feed, HomeViewModel> {
             @Override
             public void onViewAttachedToWindow2(@NonNull ViewHolder holder) {
                 if (holder.isVideoItem()) {
-//                    playDetector.addTarget(holder.getListPlayerView());
+                    playDetector.addTarget(holder.getListPlayerView());
                 }
             }
 
             @Override
             public void onViewDetachedFromWindow2(@NonNull ViewHolder holder) {
-//                playDetector.removeTarget(holder.getListPlayerView());
+                playDetector.removeTarget(holder.getListPlayerView());
             }
 
             @Override
@@ -125,20 +127,20 @@ public class HomeFragment extends AbsListFragment<Feed, HomeViewModel> {
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-//        if (hidden) {
-//            playDetector.onPause();
-//        } else {
-//            playDetector.onResume();
-//        }
+        if (hidden) {
+            playDetector.onPause();
+        } else {
+            playDetector.onResume();
+        }
     }
 
     @Override
     public void onPause() {
         //如果是跳转到详情页,咱们就不需要 暂停视频播放了
         //如果是前后台切换 或者去别的页面了 都是需要暂停视频播放的
-//        if (shouldPause) {
-//            playDetector.onPause();
-//        }
+        if (shouldPause) {
+            playDetector.onPause();
+        }
         Log.e("homefragment", "onPause: feedtype:" + feedType);
         super.onPause();
     }
@@ -153,12 +155,12 @@ public class HomeFragment extends AbsListFragment<Feed, HomeViewModel> {
         if (getParentFragment() != null) {
             if (getParentFragment().isVisible() && isVisible()) {
                 Log.e("homefragment", "onResume: feedtype:" + feedType);
-//                playDetector.onResume();
+                playDetector.onResume();
             }
         } else {
             if (isVisible()) {
                 Log.e("homefragment", "onResume: feedtype:" + feedType);
-//                playDetector.onResume();
+                playDetector.onResume();
             }
         }
     }
@@ -167,7 +169,7 @@ public class HomeFragment extends AbsListFragment<Feed, HomeViewModel> {
     @Override
     public void onDestroy() {
         //记得销毁
-//        PageListPlayManager.release(feedType);
+        PageListPlayManager.release(feedType);
         super.onDestroy();
     }
 }
