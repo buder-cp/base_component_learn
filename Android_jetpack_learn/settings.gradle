@@ -1,3 +1,4 @@
+include ':workermanager'
 include ':roomtest'
 include ':lifecycletest'
 include ':app'

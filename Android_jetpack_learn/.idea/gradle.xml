@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lifecycletest" />
             <option value="$PROJECT_DIR$/roomtest" />
+            <option value="$PROJECT_DIR$/workermanager" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
