@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="networkImage"
+            type="String" />
+
+        <variable
+            name="localImage"
+            type="int" />
+
+        <variable
+            name="imagePadding"
+            type="int" />
+
+        <variable
+            name="ClickHandler"
+            type="com.example.databinding.bindingadapter.BindingAdapterActivity.ClickHandler" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@color/teal_200"
+            app:defaultImageResource="@{localImage}"
+            app:image="@{networkImage}"
+            app:padding="@{imagePadding}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{ClickHandler.onClick}"
+            android:text="change padding" />
+
+    </LinearLayout>
+</layout>

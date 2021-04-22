@@ -10,7 +10,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Student.class}, version = 1)
+@Database(entities = {Student.class}, exportSchema = false, version = 1)
 public abstract class MyDatabase extends RoomDatabase {
     private static final String DATABASE_NAME = "my_db";
 

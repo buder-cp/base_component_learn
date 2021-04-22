@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="EventHandler"
+            type="com.example.databinding.eventhandle.EventHandleActivity.EventHandleListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- onClick 写法一 -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_200"
+            android:onClick="@{EventHandler::onButtonClickedss}"
+            android:text="Click Me" />
+
+        <!-- onClick 写法二 不能使用 会报如下错误：-->
+        <!--  ERROR: Method references using '.' is deprecated. Instead of 'EventHandler.onButtonClickedss', use 'EventHandler::onButtonClickedss' file://databinding\src\main\res\layout\activity_event_handle.xml Line:29-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/teal_200"-->
+<!--            android:onClick="@{EventHandler.onButtonClickedss}"-->
+<!--            android:text="Click Me" />-->
+
+    </LinearLayout>
+</layout>
