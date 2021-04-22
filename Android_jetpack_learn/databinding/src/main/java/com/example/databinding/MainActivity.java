@@ -10,6 +10,7 @@ import com.example.databinding.bindingadapter.BindingAdapterActivity;
 import com.example.databinding.eventhandle.EventHandleActivity;
 import com.example.databinding.includelayout.IncludeLayoutActivity;
 import com.example.databinding.simpletextview.SimpleTextViewActivity;
+import com.example.databinding.twowaybinding.TwoWayBindingActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BindingAdapterActivity.class);
         startActivity(intent);
     }
-//
-//    public void TwoWayBindingButtonClicked(View view) {
-//        Intent intent = new Intent(this, TwoWayBindingActivity.class);
-//        startActivity(intent);
-//    }
+
+    public void TwoWayBindingButtonClicked(View view) {
+        Intent intent = new Intent(this, TwoWayBindingActivity.class);
+        startActivity(intent);
+    }
 //
 //    public void RecyclerViewButtonClicked(View view) {
 //        Intent intent = new Intent(this, RecyclerViewActivity.class);

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.databinding.twowaybinding.TwoWayBindingViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.userName}"/>
+        <!--        android:onTextChanged="@{viewModel.onTextChanged}"-->
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="记住我"
+            android:checked="@={viewModel.rememberMe}"/>
+        <!--        android:onCheckedChanged="@{(view, checked) -> viewModel.setRememberMe(checked)}"-->
+
+    </LinearLayout>
+</layout>
