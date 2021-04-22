@@ -1,3 +1,4 @@
+include ':databinding'
 include ':workermanager'
 include ':roomtest'
 include ':lifecycletest'
