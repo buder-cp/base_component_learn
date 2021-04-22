@@ -1,4 +1,4 @@
-package com.example.roomtest;
+package com.example.roomtest.roomwithlivedataviewmodel;
 
 import android.content.DialogInterface;
 import android.os.AsyncTask;
@@ -12,9 +12,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
+import com.example.roomtest.R;
 import com.example.roomtest.roomdemo.StudentAdapter;
-import com.example.roomtest.roomdemo.database.MyDatabase;
 import com.example.roomtest.roomdemo.database.Student;
 
 import java.util.ArrayList;
@@ -52,7 +54,15 @@ public class MainActivity extends AppCompatActivity {
 
         myDatabase = MyDatabase.getInstance(this);
 
-        new QueryStudentTask().execute();
+        StudentViewModel studentViewModel = ViewModelProviders.of(this).get(StudentViewModel.class);
+        studentViewModel.getLiveDataStudent().observe(this, new Observer<List<Student>>() {
+            @Override
+            public void onChanged(List<Student> students) {
+                studentList.clear();
+                studentList.addAll(students);
+                studentAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     private void updateOrDeleteDialog(final Student student) {
@@ -146,15 +156,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... arg0) {
             myDatabase.studentDao().insertStudent(new Student(name, age));
-            studentList.clear();
-            studentList.addAll(myDatabase.studentDao().getStudentList());
             return null;
         }
 
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            studentAdapter.notifyDataSetChanged();
         }
     }
 
@@ -172,15 +179,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... arg0) {
             myDatabase.studentDao().updateStudent(new Student(id, name, age));
-            studentList.clear();
-            studentList.addAll(myDatabase.studentDao().getStudentList());
             return null;
         }
 
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            studentAdapter.notifyDataSetChanged();
         }
     }
 
@@ -194,34 +198,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... arg0) {
             myDatabase.studentDao().deleteStudent(student);
-            studentList.clear();
-            studentList.addAll(myDatabase.studentDao().getStudentList());
             return null;
         }
 
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            studentAdapter.notifyDataSetChanged();
-        }
-    }
-
-    private class QueryStudentTask extends AsyncTask<Void, Void, Void> {
-        public QueryStudentTask() {
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... arg0) {
-            studentList.clear();
-            studentList.addAll(myDatabase.studentDao().getStudentList());
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-            studentAdapter.notifyDataSetChanged();
         }
     }
 }
