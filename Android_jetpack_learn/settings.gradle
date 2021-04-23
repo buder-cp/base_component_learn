@@ -1,3 +1,4 @@
+include ':paging'
 include ':databinding'
 include ':workermanager'
 include ':roomtest'
