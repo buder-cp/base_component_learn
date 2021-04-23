@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MVVM</string>
+
+    <string name="location">location: %s</string>
+
+    <string name="followers">followers: %s</string>
+
+    <string name="following">following: %s</string>
+
 </resources>
