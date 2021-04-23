@@ -1,3 +1,4 @@
+include ':mvvm'
 include ':paging'
 include ':databinding'
 include ':workermanager'

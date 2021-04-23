@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/databinding" />
             <option value="$PROJECT_DIR$/lifecycletest" />
+            <option value="$PROJECT_DIR$/mvvm" />
             <option value="$PROJECT_DIR$/paging" />
             <option value="$PROJECT_DIR$/roomtest" />
             <option value="$PROJECT_DIR$/workermanager" />
