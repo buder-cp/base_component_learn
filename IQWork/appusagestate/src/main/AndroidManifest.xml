@@ -2,20 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.appusagestate">
 
-    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
-
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+<!--    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />-->
+<!-- android:theme="@style/NoEnterAnimationTheme" -->
+    <application>
+        <activity android:name=".MainActivity"
+            android:exported="true"
+            android:taskAffinity="com.tvpdsg.launcher"
+            android:theme="@style/NoEnterAnimationTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.tvguo.settings.ACTION_HDMI_SWITCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+
             </intent-filter>
         </activity>
     </application>

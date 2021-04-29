@@ -6,10 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn"
+    <!--<Button
+        android:id="@+id/activity_start_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="activity_start_btn" />-->
+
+    <Button
+        android:id="@+id/broad_cast_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="broad_cast" />
 
 </RelativeLayout>

@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.e("MainActivity", "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        overridePendingTransition(0,0);
         heapTestBtn = findViewById(R.id.native_heap_test);
         signalBtn = findViewById(R.id.signal_info);
         contentProviderBtn = findViewById(R.id.contentProvider);
@@ -100,6 +101,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(0,0);
+    }
+
+    @Override
     public void onClick(View view) {
         if (view.getId() == R.id.native_heap_test) {
 //            Intent intent = new Intent(MainActivity.this, NativeHeapActivity.class);
@@ -119,11 +126,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //            gotoPlaySetting();
 //            gotoAboutSetting();
-            Intent intent2 = new Intent();
-            intent2.setComponent(new ComponentName("com.tvguo.app", "com.tvguo.app.SplashActivity"));
-            intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent2);
+
+            Intent intent = new Intent();
+            intent.setAction("com.tvguo.settings.ACTION_HDMI_SWITCH");
+            startActivity(intent);
+
         }
+    }
+
+    private void gotoTest() {
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("com.example.appusagestate", "com.example.appusagestate.MainActivity"));
+        startActivity(intent);
     }
 
     /**
